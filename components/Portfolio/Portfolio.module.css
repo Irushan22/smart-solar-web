@@ -1,0 +1,532 @@
+/* ── Section ───────────────────────────────────────── */
+.portfolio {
+  position: relative;
+  padding: 7rem 2rem;
+  background-color: #f7f9fc;
+  overflow: hidden;
+}
+
+/* ── Decorative Backgrounds ────────────────────────── */
+.bgDot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(11, 25, 44, 0.06) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.bgGlow {
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(115, 176, 66, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* ── Container ─────────────────────────────────────── */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+/* ── Header ────────────────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.subtitle {
+  font-family: var(--font-outfit), sans-serif;
+  color: #73b042;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #0B192C;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.25rem;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #73b042 0%, #4a9630 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.headerDescription {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(11, 25, 44, 0.55);
+  font-weight: 400;
+  text-transform: none;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Filter Pills ──────────────────────────────────── */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.filterPill {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.65rem 1.75rem;
+  border-radius: 100px;
+  border: 1.5px solid rgba(11, 25, 44, 0.12);
+  background: white;
+  color: #152e52;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.filterPill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #73b042, #4a9630);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  border-radius: 100px;
+  z-index: 0;
+}
+
+.filterPill span {
+  position: relative;
+  z-index: 1;
+}
+
+.filterPill:hover {
+  border-color: #73b042;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(115, 176, 66, 0.15);
+}
+
+.filterPillActive {
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 8px 25px rgba(115, 176, 66, 0.3);
+}
+
+.filterPillActive::before {
+  opacity: 1;
+}
+
+.filterPillActive:hover {
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(115, 176, 66, 0.35);
+}
+
+/* ── Bento Grid ────────────────────────────────────── */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+  grid-template-areas:
+    "hero hero  item2"
+    "item3 item4 item5";
+}
+
+/* ── Card Base ─────────────────────────────────────── */
+.card {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  cursor: pointer;
+  min-height: 320px;
+  animation: cardFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+.cardHidden {
+  display: none;
+}
+
+/* Bento area assignments */
+.card:nth-child(1) { grid-area: hero; min-height: 440px; }
+.card:nth-child(2) { grid-area: item2; }
+.card:nth-child(3) { grid-area: item3; }
+.card:nth-child(4) { grid-area: item4; }
+.card:nth-child(5) { grid-area: item5; }
+
+/* ── Card Image ────────────────────────────────────── */
+.cardImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .cardImage {
+  transform: scale(1.08);
+}
+
+/* ── Card Gradient Overlay (always visible) ────────── */
+.cardGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(11, 25, 44, 0.85) 0%,
+    rgba(11, 25, 44, 0.3) 40%,
+    transparent 100%
+  );
+  z-index: 1;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover .cardGradient {
+  opacity: 0;
+}
+
+/* ── Glassmorphism Hover Overlay ───────────────────── */
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  background: linear-gradient(
+    160deg,
+    rgba(11, 25, 44, 0.55) 0%,
+    rgba(11, 25, 44, 0.85) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .cardOverlay {
+  opacity: 1;
+}
+
+/* ── Card Badge ────────────────────────────────────── */
+.cardBadge {
+  font-family: var(--font-outfit), sans-serif;
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 3;
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ── Card Content (bottom info — always visible) ───── */
+.cardInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.75rem;
+  z-index: 2;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.card:hover .cardInfo {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.cardTitle {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.cardLocation {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: none;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* ── Overlay Content (visible on hover) ────────────── */
+.overlayContent {
+  transform: translateY(15px);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .overlayContent {
+  transform: translateY(0);
+}
+
+.overlayTitle {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.overlayDescription {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: none;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Overlay Stats Row ─────────────────────────────── */
+.overlayStats {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.overlayStat {
+  display: flex;
+  flex-direction: column;
+}
+
+.overlayStatValue {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #73b042;
+}
+
+.overlayStatLabel {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── Overlay Link ──────────────────────────────────── */
+.overlayLink {
+  font-family: var(--font-outfit), sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #73b042;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.overlayLink svg {
+  transition: transform 0.3s ease;
+}
+
+.overlayLink:hover {
+  color: #8dc85a;
+}
+
+.overlayLink:hover svg {
+  transform: translateX(4px);
+}
+
+/* ── Decorative ring on hero card ──────────────────── */
+.cardRing {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgba(115, 176, 66, 0.1);
+  border-radius: 50%;
+  z-index: 3;
+  pointer-events: none;
+  animation: ringPulse 4s ease-in-out infinite;
+}
+
+/* ── Bottom CTA ────────────────────────────────────── */
+.bottomCta {
+  text-align: center;
+  margin-top: 3.5rem;
+}
+
+.ctaButton {
+  font-family: var(--font-outfit), sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: white;
+  background: linear-gradient(135deg, #152e52 0%, #0B192C 100%);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #73b042, #4a9630);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 100px;
+}
+
+.ctaButton span,
+.ctaButton svg {
+  position: relative;
+  z-index: 1;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(11, 25, 44, 0.3);
+}
+
+.ctaButton:hover::before {
+  opacity: 1;
+}
+
+.ctaButton:hover svg {
+  transform: translateX(3px);
+}
+
+.ctaButton svg {
+  transition: transform 0.3s ease;
+}
+
+/* ── Keyframes ─────────────────────────────────────── */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ringPulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.15); opacity: 0.1; }
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .bentoGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "hero hero"
+      "item2 item3"
+      "item4 item5";
+  }
+
+  .card:nth-child(1) {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 5rem 1rem;
+  }
+
+  .bentoGrid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hero"
+      "item2"
+      "item3"
+      "item4"
+      "item5";
+    gap: 1.25rem;
+  }
+
+  .card {
+    min-height: 280px;
+  }
+
+  .card:nth-child(1) {
+    min-height: 320px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .filters {
+    gap: 0.5rem;
+  }
+
+  .filterPill {
+    font-size: 0.7rem;
+    padding: 0.5rem 1.25rem;
+  }
+
+  .overlayStats {
+    gap: 1rem;
+  }
+}

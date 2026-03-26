@@ -1,0 +1,568 @@
+/* ── Section ───────────────────────────────────────── */
+.calculator {
+  position: relative;
+  padding: 7rem 2rem;
+  background-color: #0B192C;
+  overflow: hidden;
+}
+
+/* ── Decorative Backgrounds ────────────────────────── */
+.bgGlow1 {
+  position: absolute;
+  top: -15%;
+  left: -10%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(115, 176, 66, 0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.bgGlow2 {
+  position: absolute;
+  bottom: -20%;
+  right: -8%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(30, 62, 98, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.gridPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+/* ── Container ─────────────────────────────────────── */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+/* ── Header ────────────────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.subtitle {
+  font-family: var(--font-outfit), sans-serif;
+  color: #73b042;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.25rem;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #73b042 0%, #4a9630 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.headerDescription {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 400;
+  text-transform: none;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Layout ────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* ── Input Panel (Glassmorphism) ───────────────────── */
+.inputPanel {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.inputGroup {
+  margin-bottom: 2rem;
+}
+
+.inputGroup:last-child {
+  margin-bottom: 0;
+}
+
+.inputGroupTitle {
+  font-family: var(--font-outfit), sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.inputGroupTitle svg {
+  color: #73b042;
+}
+
+/* ── Slider Input Row ──────────────────────────────── */
+.inputRow {
+  margin-bottom: 1.5rem;
+}
+
+.inputRow:last-child {
+  margin-bottom: 0;
+}
+
+.inputLabel {
+  font-family: var(--font-outfit), sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.inputLabelText {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.inputValue {
+  font-family: var(--font-outfit), sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(115, 176, 66, 0.12);
+  border: 1px solid rgba(115, 176, 66, 0.2);
+  border-radius: 8px;
+  padding: 0.3rem 0.75rem;
+}
+
+.inputValueNumber {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #73b042;
+  text-transform: none;
+}
+
+.inputValueUnit {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(115, 176, 66, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── Custom Range Slider ───────────────────────────── */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #73b042, #4a9630);
+  cursor: pointer;
+  border: 3px solid #0B192C;
+  box-shadow: 0 0 15px rgba(115, 176, 66, 0.4), 0 0 0 4px rgba(115, 176, 66, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(115, 176, 66, 0.6), 0 0 0 6px rgba(115, 176, 66, 0.15);
+}
+
+.slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #73b042, #4a9630);
+  cursor: pointer;
+  border: 3px solid #0B192C;
+  box-shadow: 0 0 15px rgba(115, 176, 66, 0.4), 0 0 0 4px rgba(115, 176, 66, 0.1);
+}
+
+.slider::-moz-range-track {
+  height: 6px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Results Panel ─────────────────────────────────── */
+.resultsPanel {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+  opacity: 0;
+}
+
+/* ── Result Cards Grid ─────────────────────────────── */
+.resultsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.resultCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 1.25rem;
+  padding: 1.75rem 1.5rem;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.resultCard:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(115, 176, 66, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.resultCardAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #73b042, #4a9630);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resultCard:hover .resultCardAccent {
+  transform: scaleX(1);
+}
+
+.resultCardIcon {
+  width: 44px;
+  height: 44px;
+  background: rgba(115, 176, 66, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #73b042;
+  margin-bottom: 1rem;
+  transition: all 0.35s ease;
+}
+
+.resultCard:hover .resultCardIcon {
+  background: linear-gradient(135deg, #73b042, #4a9630);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(115, 176, 66, 0.3);
+}
+
+.resultCardValue {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.resultCardLabel {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* ── Savings Card (full width) ─────────────────────── */
+.savingsCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.savingsCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(115, 176, 66, 0.2);
+}
+
+.savingsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.savingsTitle {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.savingsTitle svg {
+  color: #73b042;
+}
+
+.savingsPercentage {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #73b042;
+}
+
+/* ── Progress Bar ──────────────────────────────────── */
+.progressBarTrack {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #4a9630 0%, #73b042 50%, #8dc85a 100%);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.progressBarFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* ── Savings Details Row ───────────────────────────── */
+.savingsDetails {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.savingsDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.savingsDetailValue {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: white;
+}
+
+.savingsDetailLabel {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* add green tint to generation detail */
+.savingsDetailGreen .savingsDetailValue {
+  color: #73b042;
+}
+
+/* ── Area Visual ───────────────────────────────────── */
+.areaVisual {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.areaVisualLabel {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.75rem;
+}
+
+.areaBox {
+  position: relative;
+  background: rgba(115, 176, 66, 0.04);
+  border: 1px dashed rgba(115, 176, 66, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  max-height: 160px;
+  overflow: hidden;
+}
+
+.panelGrid {
+  display: grid;
+  gap: 2px;
+}
+
+.panelCell {
+  width: 12px;
+  height: 8px;
+  background: linear-gradient(135deg, rgba(115, 176, 66, 0.3), rgba(74, 150, 48, 0.5));
+  border-radius: 1px;
+  border: 0.5px solid rgba(115, 176, 66, 0.15);
+}
+
+.areaLabel {
+  font-family: var(--font-outfit), sans-serif;
+  position: absolute;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgba(115, 176, 66, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.areaLabelWidth {
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.areaLabelLength {
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+/* ── Keyframes ─────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .calculator {
+    padding: 5rem 1rem;
+  }
+
+  .inputPanel {
+    padding: 1.75rem;
+  }
+
+  .resultsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .resultCardValue {
+    font-size: 1.6rem;
+  }
+
+  .savingsDetails {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .resultsGrid {
+    grid-template-columns: 1fr;
+  }
+}
