@@ -84,6 +84,8 @@ const services = [
 export const Services = () => {
   return (
     <section id="services" className={styles.services}>
+      {/* Parallax background */}
+      <div className={styles.parallaxBg}></div>
       {/* Decorative background elements */}
       <div className={styles.bgGlow1}></div>
       <div className={styles.bgGlow2}></div>
