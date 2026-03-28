@@ -107,7 +107,7 @@ export const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className={styles.card}
+              className={`${styles.card} ${index === 0 ? styles.active : ''}`}
               style={{ animationDelay: `${0.1 + index * 0.1}s` }}
             >
               <div className={styles.cardIconWrapper}>

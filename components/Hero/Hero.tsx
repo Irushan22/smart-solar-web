@@ -1,66 +1,64 @@
+'use client';
+
 import styles from './Hero.module.css';
 
 export const Hero = () => {
   return (
     <section className={styles.hero}>
-      {/* Dynamic Background Layout */}
-      <div className={styles.backgroundContainer}>
-        <div className={styles.glowBlob1}></div>
-        <div className={styles.glowBlob2}></div>
-        <div className={styles.overlay}></div>
+      {/* Full-screen background image */}
+      <div className={styles.bgImage}></div>
+      <div className={styles.bgOverlay}></div>
+
+      {/* Animated particles */}
+      <div className={styles.particles}>
+        <div className={styles.particle} style={{ left: '15%', animationDelay: '0s' }}></div>
+        <div className={styles.particle} style={{ left: '35%', animationDelay: '2s' }}></div>
+        <div className={styles.particle} style={{ left: '55%', animationDelay: '4s' }}></div>
+        <div className={styles.particle} style={{ left: '75%', animationDelay: '1s' }}></div>
+        <div className={styles.particle} style={{ left: '90%', animationDelay: '3s' }}></div>
       </div>
-      
-      <div className={styles.heroLayout}>
-        {/* Left Column - Content */}
-        <div className={styles.contentLeft}>
-          {/* Decorative orbit rings */}
-          <div className={styles.orbitContainer}>
-            <div className={styles.orbitRing1}></div>
-            <div className={styles.orbitRing2}></div>
+
+      <div className={styles.container}>
+        <div className={styles.content}>
+          {/* Badge */}
+          <div className={styles.badge}>
+            
           </div>
-
-
 
           <h1 className={styles.title}>
-            Power Your Future With <br />
-            <span className={styles.gradientText}>Clean Energy</span>
+            Power Your Future
+            <br />
+            With <span className={styles.gradientText}>Clean Energy</span>
           </h1>
-          
-          <p className={styles.subtitle}>
-            Transform your home into a sustainable powerhouse. High-efficiency solar panels designed for maximum performance and premium aesthetics.
-          </p>
-          
-          <div className={styles.actions}>
-            <button className={styles.primaryButton}>Start Your Journey</button>
-            <button className={styles.secondaryButton}>Learn More</button>
-          </div>
-        </div>
-        
-        {/* Right Column - Image */}
-        <div className={styles.contentRight}>
-          <div className={styles.imageWrapper}>
-            <img 
-              src="/hero-bg.png" 
-              alt="Solar Panels Installation" 
-              className={styles.heroImage}
-            />
 
-            <div className={styles.stats}>
-              <div className={styles.statItem}>
-                <span className={styles.statValue}>25%</span>
-                <span className={styles.statLabel}>Efficiency</span>
-              </div>
-              <div className={styles.statDivider}></div>
-              <div className={styles.statItem}>
-                <span className={styles.statValue}>10k+</span>
-                <span className={styles.statLabel}>Installs</span>
-              </div>
-              <div className={styles.statDivider}></div>
-              <div className={styles.statItem}>
-                <span className={styles.statValue}>24/7</span>
-                <span className={styles.statLabel}>Monitoring</span>
-              </div>
-            </div>
+          <p className={styles.subtitle}>
+            Transform your home into a sustainable powerhouse with premium
+            solar solutions. High-efficiency panels designed for maximum
+            performance and long-term savings.
+          </p>
+
+        </div>
+
+        {/* Bottom stats bar */}
+        <div className={styles.statsBar}>
+          <div className={styles.statItem}>
+            <span className={styles.statNumber}>4.9</span>
+            <span className={styles.statLabel}>Average Rating</span>
+          </div>
+          <div className={styles.statDivider}></div>
+          <div className={styles.statItem}>
+            <span className={styles.statNumber}>10,000+</span>
+            <span className={styles.statLabel}>Happy Customers</span>
+          </div>
+          <div className={styles.statDivider}></div>
+          <div className={styles.statItem}>
+            <span className={styles.statNumber}>98%</span>
+            <span className={styles.statLabel}>Would Recommend</span>
+          </div>
+          <div className={styles.statDivider}></div>
+          <div className={styles.statItem}>
+            <span className={styles.statNumber}>15+</span>
+            <span className={styles.statLabel}>Years of Trust</span>
           </div>
         </div>
       </div>
