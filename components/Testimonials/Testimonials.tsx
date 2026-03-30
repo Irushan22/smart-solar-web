@@ -194,7 +194,7 @@ export const Testimonials = () => {
             <div className={styles.statLabel}>Average Rating</div>
           </div>
           <div className={styles.statItem}>
-            <div className={styles.statValue}>10,000+</div>
+            <div className={styles.statValue}>120+</div>
             <div className={styles.statLabel}>Happy Customers</div>
           </div>
           <div className={styles.statItem}>
@@ -202,7 +202,7 @@ export const Testimonials = () => {
             <div className={styles.statLabel}>Would Recommend</div>
           </div>
           <div className={styles.statItem}>
-            <div className={`${styles.statValue} ${styles.statValueGreen}`}>15+</div>
+            <div className={`${styles.statValue} ${styles.statValueGreen}`}>10+</div>
             <div className={styles.statLabel}>Years of Trust</div>
           </div>
         </div>

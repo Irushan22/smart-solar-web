@@ -34,7 +34,7 @@ export const Contact = () => {
               <div className={styles.infoCardContent}>
                 <span className={styles.infoCardTitle}>Call Us</span>
                 <span className={styles.infoCardText}>
-                  +1 234 567 8900<br />
+                  076 828 3962<br />
                   Mon – Fri, 8am – 6pm
                 </span>
               </div>
@@ -50,8 +50,8 @@ export const Contact = () => {
               <div className={styles.infoCardContent}>
                 <span className={styles.infoCardTitle}>Email Us</span>
                 <span className={styles.infoCardText}>
-                  info@smartsolar.com<br />
-                  support@smartsolar.com
+                  info@smartsolar.lk<br />
+                  support@smartsolar.lk
                 </span>
               </div>
             </div>
@@ -111,7 +111,7 @@ export const Contact = () => {
                   <input
                     type="tel"
                     className={styles.formInput}
-                    placeholder="+1 234 567 8900"
+                    placeholder="+94 11 111 2222"
                   />
                 </div>
               </div>

@@ -47,7 +47,7 @@ export const Hero = () => {
           </div>
           <div className={styles.statDivider}></div>
           <div className={styles.statItem}>
-            <span className={styles.statNumber}>10,000+</span>
+            <span className={styles.statNumber}>120+</span>
             <span className={styles.statLabel}>Happy Customers</span>
           </div>
           <div className={styles.statDivider}></div>
@@ -57,7 +57,7 @@ export const Hero = () => {
           </div>
           <div className={styles.statDivider}></div>
           <div className={styles.statItem}>
-            <span className={styles.statNumber}>15+</span>
+            <span className={styles.statNumber}>10+</span>
             <span className={styles.statLabel}>Years of Trust</span>
           </div>
         </div>

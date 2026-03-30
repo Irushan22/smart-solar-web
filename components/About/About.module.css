@@ -317,7 +317,7 @@
 @media (max-width: 1024px) {
   .layout {
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 2rem;
   }
 
   .imageColumn {
@@ -342,8 +342,12 @@
 }
 
 @media (max-width: 768px) {
+  .experienceBadge {
+    display: none;
+  }
+
   .about {
-    padding: 5rem 1rem;
+    padding: 2rem 1rem 5rem;
   }
 
   .title {

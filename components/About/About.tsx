@@ -24,7 +24,7 @@ export const About = () => {
 
             {/* Floating experience badge */}
             <div className={styles.experienceBadge}>
-              <span className={styles.badgeNumber}>15+</span>
+              <span className={styles.badgeNumber}>10+</span>
               <span className={styles.badgeLabel}>Years of<br />Experience</span>
             </div>
 
@@ -82,8 +82,8 @@ export const About = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className={styles.featureTitle}>50MW+ Clean Energy Installed</h4>
-                  <p className={styles.featureText}>Trusted by 10,000+ customers across residential and commercial projects.</p>
+                  <h4 className={styles.featureTitle}>1MW+ Clean Energy Installed</h4>
+                  <p className={styles.featureText}>Trusted by 120+ customers across residential and commercial projects.</p>
                 </div>
               </div>
             </div>
@@ -91,12 +91,12 @@ export const About = () => {
             {/* Stats row */}
             <div className={styles.statsRow}>
               <div className={styles.statItem}>
-                <span className={styles.statNumber}>10K+</span>
+                <span className={styles.statNumber}>120+</span>
                 <span className={styles.statLabel}>Happy Customers</span>
               </div>
               <div className={styles.statDivider}></div>
               <div className={styles.statItem}>
-                <span className={styles.statNumber}>50MW</span>
+                <span className={styles.statNumber}>1MW+</span>
                 <span className={styles.statLabel}>Energy Installed</span>
               </div>
               <div className={styles.statDivider}></div>
