@@ -167,9 +167,8 @@
   overflow: hidden;
   cursor: pointer;
   min-height: 320px;
-  animation: cardFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-  transform: translateY(25px);
+  text-decoration: none;
+  display: block;
 }
 
 .cardHidden {
@@ -457,17 +456,6 @@
 }
 
 /* ── Keyframes ─────────────────────────────────────── */
-@keyframes cardFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes ringPulse {
   0%, 100% { transform: scale(1); opacity: 0.4; }
   50% { transform: scale(1.15); opacity: 0.1; }

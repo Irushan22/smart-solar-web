@@ -149,7 +149,7 @@ export const Calculator = () => {
                   <span className={styles.inputLabelText}>Current Usage</span>
                   <div className={styles.inputValue}>
                     <span className={styles.inputValueNumber}>{monthlyUsage}</span>
-                    <span className={styles.inputValueUnit}>kWh</span>
+                    <span className={styles.inputValueUnit}>Units</span>
                   </div>
                 </div>
                 <input
@@ -167,28 +167,6 @@ export const Calculator = () => {
               </div>
             </div>
 
-            {/* Area Visual */}
-            <div className={styles.areaVisual}>
-              <div className={styles.areaVisualLabel}>Panel Layout Preview</div>
-              <div className={styles.areaBox}>
-                <div
-                  className={styles.panelGrid}
-                  style={{
-                    gridTemplateColumns: `repeat(${visualCols}, 12px)`,
-                  }}
-                >
-                  {Array.from({ length: Math.min(visualCols * visualRows, 200) }).map((_, i) => (
-                    <div key={i} className={styles.panelCell}></div>
-                  ))}
-                </div>
-                <span className={`${styles.areaLabel} ${styles.areaLabelWidth}`}>
-                  {width}m
-                </span>
-                <span className={`${styles.areaLabel} ${styles.areaLabelLength}`}>
-                  {length}m
-                </span>
-              </div>
-            </div>
           </div>
 
           {/* ── Right: Results ── */}
@@ -254,7 +232,7 @@ export const Calculator = () => {
                     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                   </svg>
                 </div>
-                <div className={styles.resultCardValue}>{results.monthlyGeneration.toLocaleString()}<span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)' }}> kWh</span></div>
+                <div className={styles.resultCardValue}>{results.monthlyGeneration.toLocaleString()}<span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)' }}> Units</span></div>
                 <div className={styles.resultCardLabel}>Monthly Generation</div>
               </div>
             </div>
@@ -283,19 +261,19 @@ export const Calculator = () => {
               {/* Details */}
               <div className={styles.savingsDetails}>
                 <div className={styles.savingsDetail}>
-                  <span className={styles.savingsDetailValue}>{monthlyUsage} kWh</span>
+                  <span className={styles.savingsDetailValue}>{monthlyUsage} Units</span>
                   <span className={styles.savingsDetailLabel}>Current Usage</span>
                 </div>
                 <div className={`${styles.savingsDetail} ${styles.savingsDetailGreen}`}>
-                  <span className={styles.savingsDetailValue}>{results.monthlyGeneration.toLocaleString()} kWh</span>
+                  <span className={styles.savingsDetailValue}>{results.monthlyGeneration.toLocaleString()} Units</span>
                   <span className={styles.savingsDetailLabel}>Solar Generation</span>
                 </div>
                 <div className={styles.savingsDetail}>
-                  <span className={styles.savingsDetailValue}>{results.savedUnits} units</span>
+                  <span className={styles.savingsDetailValue}>{results.savedUnits} Units</span>
                   <span className={styles.savingsDetailLabel}>Units Saved</span>
                 </div>
                 <div className={styles.savingsDetail}>
-                  <span className={styles.savingsDetailValue}>{Math.max(monthlyUsage - results.savedUnits, 0)} kWh</span>
+                  <span className={styles.savingsDetailValue}>{Math.max(monthlyUsage - results.savedUnits, 0)} Units</span>
                   <span className={styles.savingsDetailLabel}>Grid Needed</span>
                 </div>
               </div>

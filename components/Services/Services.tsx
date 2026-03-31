@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import styles from './Services.module.css';
 
 const services = [
@@ -16,6 +17,7 @@ const services = [
     title: 'Residential Solar',
     description:
       'Complete home solar panel installation with premium tier-1 panels. Reduce your electricity bills by up to 90% while increasing your property value.',
+    details: 'Our residential solar solutions are designed to provide maximum efficiency and seamless integration with your home. We handle everything from custom roof layout designs to securing the necessary permits. By using premium tier-1 solar panels and advanced smart home energy monitoring, we ensure that you can track your energy production in real-time while enjoying a comprehensive 25-year warranty.',
   },
   {
     icon: (
@@ -31,6 +33,7 @@ const services = [
     title: 'Commercial Solar',
     description:
       'Large-scale solar solutions for businesses and enterprises. Custom-designed systems to maximize ROI and meet your sustainability goals.',
+    details: 'For businesses looking to significantly reduce operational costs and meet sustainability goals, our commercial solar installations offer unparalleled reliability. Our systems utilize high-yield commercial components that integrate perfectly with your facility. We provide full support navigating tax credits, demand charge reduction strategies, and offer flexible financing options tailored to your enterprise needs.',
   },
   {
     icon: (
@@ -41,6 +44,7 @@ const services = [
     title: 'Solar Maintenance',
     description:
       'Comprehensive panel cleaning, inspection, and repair services. Keep your system performing at peak efficiency all year round.',
+    details: 'Protect your investment with our comprehensive solar maintenance programs. We ensure your system stays at optimal output through bi-annual professional glass cleaning, advanced system diagnostics, and proactive inverter health checkups. Should an issue ever arise, our team provides priority emergency repair services backed by our performance guarantee.',
   },
   {
     icon: (
@@ -55,6 +59,7 @@ const services = [
     title: 'Energy Storage',
     description:
       'Advanced battery storage and backup power systems. Store excess solar energy and achieve true energy independence for your property.',
+    details: 'Take complete control over your power consumption with our robust energy storage solutions. We deploy high-cycle lithium-iron phosphate batteries that offer modular and expandable capacity to match your daily usage. Our advanced architectures provide seamless failover protection during grid blackouts and allow for dynamic off-grid capabilities alongside intelligent time-of-use rate optimization.',
   },
   {
     icon: (
@@ -65,6 +70,7 @@ const services = [
     title: 'EV Charging',
     description:
       'Solar-powered electric vehicle charging stations for homes and businesses. Charge your EV with 100% clean, renewable energy.',
+    details: 'Future-proof your property with Level 2 and Level 3 fast charging stations powered directly by the sun. Our charging solutions feature universal J1772 and NACS compatibility to charge any modern electric vehicle. Equipped with dynamic load balancing technology and smart usage tracking software, our stations are perfect for single-home users or multi-vehicle commercial fleets.',
   },
   {
     icon: (
@@ -78,10 +84,23 @@ const services = [
     title: 'Consultation',
     description:
       'Free comprehensive energy audit and feasibility study. Our experts analyze your property to design the perfect solar solution.',
+    details: 'Every successful installation starts with a meticulous plan. Our free consultation service involves precise 3D roof modeling and deep historical energy usage analysis to custom design a system tailored uniquely to your property. We break down the numbers, providing detailed ROI and lifetime payback projections, while offering full assistance in handling HOA constraints and state permitting.',
   },
 ];
 
 export const Services = () => {
+  const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
+
+  const openModal = (service: typeof services[0]) => {
+    setSelectedService(service);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setSelectedService(null);
+    document.body.style.overflow = 'unset';
+  };
+
   return (
     <section id="services" className={styles.services}>
       {/* Parallax background */}
@@ -116,7 +135,7 @@ export const Services = () => {
               </div>
               <h3 className={styles.cardTitle}>{service.title}</h3>
               <p className={styles.cardDescription}>{service.description}</p>
-              <a className={styles.cardLink}>
+              <button className={styles.cardLink} onClick={() => openModal(service)}>
                 Learn More
                 <svg
                   width="16"
@@ -131,12 +150,42 @@ export const Services = () => {
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
-              </a>
+              </button>
               <div className={styles.cardAccent}></div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Modern Detail Modal */}
+      {selectedService && (
+        <div className={styles.modalOverlay} onClick={closeModal}>
+          <div className={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.modalCloseButton} onClick={closeModal} aria-label="Close modal">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            <div className={styles.modalHeader}>
+              <h3 className={styles.modalTitle}>{selectedService.title}</h3>
+            </div>
+            
+            <div className={styles.modalBody}>
+              <p className={styles.modalDescription}>{selectedService.description}</p>
+              
+              <div className={styles.modalDetailsBox}>
+                <h4 className={styles.detailsTitle}>Service Details</h4>
+                <p className={styles.detailsText}>{selectedService.details}</p>
+              </div>
+            </div>
+            
+            <div className={styles.modalFooter}>
+              <button className={styles.modalCta} onClick={closeModal}>Got it</button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

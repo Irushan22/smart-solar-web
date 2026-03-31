@@ -283,3 +283,208 @@
     margin-bottom: 3rem;
   }
 }
+
+/* ── Modern Modal ────────────────────────────────────── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 25, 44, 0.85); /* Dark background matching #0B192C */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.modalContainer {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(115, 176, 66, 0.1);
+  overflow: hidden;
+  text-transform: none; /* override global uppercase */
+  animation: modalScaleUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Modal Inner Decor */
+.modalContainer::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(115, 176, 66, 0.2), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.05);
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modalCloseButton:hover {
+  background: rgba(244, 63, 94, 0.1);
+  color: #f43f5e;
+  border-color: rgba(244, 63, 94, 0.3);
+  transform: rotate(90deg);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-right: 3rem;
+}
+
+.modalHeaderIcon {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(115, 176, 66, 0.15), rgba(74, 150, 48, 0.1));
+  border-radius: 1.25rem;
+  border: 1px solid rgba(115, 176, 66, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #73b042;
+  flex-shrink: 0;
+}
+
+.modalIconGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(115, 176, 66, 0.4), transparent 70%);
+  border-radius: 1.25rem;
+  filter: blur(15px);
+  z-index: -1;
+}
+
+.modalTitle {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1f2937;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.modalBody {
+  margin-bottom: 2rem;
+}
+
+.modalDescription {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #4b5563;
+  margin-bottom: 2rem;
+  font-weight: 400; /* override body font-weight: 800 */
+}
+
+.modalDetailsBox {
+  background: rgba(115, 176, 66, 0.05);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(115, 176, 66, 0.15);
+}
+
+.detailsTitle {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #73b042;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.detailsText {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400; /* override body font-weight: 800 */
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modalCta {
+  font-family: var(--font-outfit), sans-serif;
+  background: linear-gradient(135deg, #73b042, #4a9630);
+  color: #ffffff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(115, 176, 66, 0.3);
+}
+
+.modalCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(115, 176, 66, 0.4);
+}
+
+/* Modal Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Modal Responsive */
+@media (max-width: 768px) {
+  .modalContainer {
+    padding: 1.5rem;
+  }
+  
+  .modalTitle {
+    font-size: 1.35rem;
+  }
+  
+  .modalHeaderIcon {
+    width: 48px;
+    height: 48px;
+  }
+}
