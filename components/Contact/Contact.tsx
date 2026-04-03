@@ -166,7 +166,7 @@ export const Contact = () => {
               <div className={styles.infoCardContent}>
                 <span className={styles.infoCardTitle}>Call Us</span>
                 <span className={styles.infoCardText}>
-                  076 828 3962<br />
+                  <a href="tel:+94768283962" style={{ color: 'inherit' }}>076 828 3962</a><br />
                   Mon – Fri, 8am – 6pm
                 </span>
               </div>
@@ -182,8 +182,8 @@ export const Contact = () => {
               <div className={styles.infoCardContent}>
                 <span className={styles.infoCardTitle}>Email Us</span>
                 <span className={styles.infoCardText}>
-                  info@smartsolar.lk<br />
-                  support@smartsolar.lk
+                  <a href="mailto:info@smartsolar.lk" style={{ color: 'inherit' }}>info@smartsolar.lk</a><br />
+                  <a href="mailto:support@smartsolar.lk" style={{ color: 'inherit' }}>support@smartsolar.lk</a>
                 </span>
               </div>
             </div>

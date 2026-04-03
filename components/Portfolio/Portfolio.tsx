@@ -37,8 +37,8 @@ export const Portfolio = () => {
             Featured <span className={styles.highlight}>Projects</span>
           </h2>
           <p className={styles.headerDescription}>
-            Explore our portfolio of completed solar installations — from luxury
-            residences to utility-scale solar farms across the globe.
+            Explore our portfolio of completed solar installations — from
+            residential rooftops to commercial-scale solar systems island-wide.
           </p>
         </div>
 
@@ -68,8 +68,9 @@ export const Portfolio = () => {
                 {/* Image */}
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={project.title || `${project.stats.find(s => s.label === 'System Size')?.value || ''} solar installation in ${project.location}, Sri Lanka`}
                   className={styles.cardImage}
+                  loading={index === 0 ? 'eager' : 'lazy'}
                 />
 
                 {/* Badge */}

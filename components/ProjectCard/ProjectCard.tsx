@@ -14,8 +14,9 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
         {/* Image */}
         <img
           src={project.image}
-          alt={project.title}
+          alt={project.title || `${project.stats.find(s => s.label === 'System Size')?.value || ''} solar installation in ${project.location}, Sri Lanka`}
           className={styles.cardImage}
+          loading="lazy"
         />
 
         {/* Badge */}

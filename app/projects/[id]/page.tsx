@@ -1,10 +1,49 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
+import Script from 'next/script';
 import { Navbar } from '@/components/Navbar/Navbar';
 import { Footer } from '@/components/Footer/Footer';
 import { ProjectCard } from '@/components/ProjectCard/ProjectCard';
 import { allProjects } from '@/data/projects';
 import styles from './ProjectDetail.module.css';
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const project = allProjects.find((p) => p.id === resolvedParams.id);
+
+  if (!project) {
+    return { title: 'Project Not Found' };
+  }
+
+  const systemSize = project.stats.find((s) => s.label === 'System Size')?.value || '';
+  const title = `${systemSize} Solar Installation in ${project.location} | Smart Solar Energy`;
+  const description = project.description;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: project.image, alt: `${systemSize} solar panel installation in ${project.location}, Sri Lanka` }],
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [project.image],
+    },
+    alternates: {
+      canonical: `https://smartsolar.lk/projects/${project.id}`,
+    },
+  };
+}
+
+export function generateStaticParams() {
+  return allProjects.map((project) => ({ id: project.id }));
+}
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
@@ -18,6 +57,21 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
   return (
     <main className="flex min-h-screen flex-col bg-white">
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://smartsolar.lk' },
+              { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://smartsolar.lk/projects' },
+              { '@type': 'ListItem', position: 3, name: `${project.stats.find(s => s.label === 'System Size')?.value || ''} Solar Installation in ${project.location}` },
+            ],
+          }),
+        }}
+      />
       <Navbar />
       
       <div className={styles.detailPage}>
@@ -44,7 +98,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           {/* Header */}
           <div className={styles.header}>
             <span className={styles.badge}>{project.category}</span>
-            <h1 className={styles.title}>{project.title}</h1>
+            <h1 className={styles.title}>
+              {project.title || `${project.stats.find(s => s.label === 'System Size')?.value || ''} Solar Installation in ${project.location}`}
+            </h1>
             <p className={styles.location}>
               <svg
                 width="16"
@@ -63,17 +119,20 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             </p>
           </div>
 
-          {/* Image Gallery */}
           <div className={styles.gallery}>
-            {project.images.slice(0, 4).map((img, index) => (
-              <div key={index} className={styles.galleryImageWrapper}>
-                <img 
-                  src={img} 
-                  alt={`${project.title} gallery image ${index + 1}`} 
-                  className={styles.galleryImage} 
-                />
-              </div>
-            ))}
+            {project.images.slice(0, 4).map((img, index) => {
+              const systemSize = project.stats.find(s => s.label === 'System Size')?.value || '';
+              return (
+                <div key={index} className={styles.galleryImageWrapper}>
+                  <img 
+                    src={img} 
+                    alt={`${systemSize} solar panel installation in ${project.location} Sri Lanka - Image ${index + 1}`}
+                    className={styles.galleryImage}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                  />
+                </div>
+              );
+            })}
           </div>
 
           {/* Content & Specs Grid */}
