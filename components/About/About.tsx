@@ -13,7 +13,7 @@ export const About = () => {
           <div className={styles.imageColumn}>
             <div className={styles.imageWrapper}>
               <Image
-                src="/about-team.png"
+                src="/smart-solar-team-sri-lanka.png"
                 alt="Smart Solar team installing solar panels"
                 fill
                 className={styles.image}

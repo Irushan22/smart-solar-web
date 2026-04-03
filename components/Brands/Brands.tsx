@@ -4,12 +4,12 @@ import Image from 'next/image';
 import styles from './Brands.module.css';
 
 const brands = [
-  { name: 'Huawei', logo: '/brands/huwawei.jpeg' },
-  { name: 'Jinko Solar', logo: '/brands/jinko.svg' },
-  { name: 'LONGi', logo: '/brands/longi.svg' },
-  { name: 'Growatt', logo: '/brands/growatt.png' },
-  { name: 'Solis', logo: '/brands/solis.png' },
-  { name: 'Dyness', logo: '/brands/dyness.png' },
+  { name: 'Huawei', logo: '/brands/huawei-solar-inverter-logo.jpeg' },
+  { name: 'Jinko Solar', logo: '/brands/jinko-solar-panel-logo.svg' },
+  { name: 'LONGi', logo: '/brands/longi-solar-panel-logo.svg' },
+  { name: 'Growatt', logo: '/brands/growatt-solar-inverter-logo.png' },
+  { name: 'Solis', logo: '/brands/solis-solar-inverter-logo.png' },
+  { name: 'Dyness', logo: '/brands/dyness-solar-battery-logo.png' },
 ];
 
 export const Brands = () => {

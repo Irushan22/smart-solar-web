@@ -93,7 +93,7 @@ export const Navbar = () => {
       </div>
       <div className={styles.container}>
         <Link href="/" className={styles.logoContainer}>
-          <Image src="/logo_new2.png" alt="Smart Solar Logo" width={160} height={48} className={styles.logoImage} priority />
+          <Image src="/smart-solar-logo.png" alt="Smart Solar Logo" width={160} height={48} className={styles.logoImage} priority />
           {/* <Image src="/logo2.png" alt="Logo 2" width={160} height={48} className={styles.logoImage} priority /> */}
         </Link>
         <div className={styles.rightContent}>
