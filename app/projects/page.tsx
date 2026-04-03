@@ -20,12 +20,12 @@ export default function ProjectsPage() {
         <div className={styles.container}>
           {/* Header */}
           <div className={styles.header}>
-            <span className={styles.subtitle}>COMPLETE PORTFOLIO</span>
+            <span className={styles.subtitle}></span>
             <h1 className={styles.title}>
-              Our Global <span className={styles.highlight}>Impact</span>
+              Recent <span className={styles.highlight}>Projects</span>
             </h1>
             <p className={styles.description}>
-              Explore 15 of our most groundbreaking installations worldwide. Whether it&apos;s a remote cabin or a gigantic industrial plant, we bring the power of the sun to every roof.
+              Explore our residential and commercial solar installations across Sri Lanka. From rooftop systems to large-scale commercial setups, we bring the power of the sun to every roof.
             </p>
           </div>
 

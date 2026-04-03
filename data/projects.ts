@@ -1,4 +1,4 @@
-export type Category = 'all' | 'residential' | 'commercial';
+export type Category = "all" | "residential" | "commercial";
 
 export interface Project {
   id: string;
@@ -12,6 +12,7 @@ export interface Project {
   testimonial?: {
     name: string;
     text: string;
+    designation: string;
     rating: number; // out of 5
   };
   stats: { value: string; label: string }[];
@@ -20,304 +21,403 @@ export interface Project {
 export const allProjects: Project[] = [
   // Existing 6 projects
   {
-    id: 'p1',
-    image: '/portfolio-1.png',
-    images: ['/portfolio-1.png', '/portfolio-2.png', '/portfolio-3.png', '/portfolio-4.png'],
-    title: 'Luxury Villa Installation',
-    location: 'Malibu, California',
-    category: 'residential',
-    description: 'Complete 45kW solar system with integrated battery storage for this premium hillside residence. Achieved 95% energy independence.',
-    longDescription: 'This stunning property required a custom-designed setup that seamlessly integrated into its natural surroundings without compromising the luxury aesthetic. The 45kW solar framework empowers virtually total off-grid independence while robust battery infrastructure guarantees reliable uptime through California rolling blackouts.',
+    id: "p1",
+    image: "/p7_pic1.jpg",
+    images: [
+      "/p7_pic1.jpg",
+      "/p7_pic2.jpg",
+      "/p7_pic3.jpg",
+      // "/portfolio-4.png",
+    ],
+    title: "",
+    location: "Panwila",
+    category: "commercial",
+    description:
+      "25kW on-grid solar system designed for a combined home and retail property, reducing electricity costs while generating extra income through the Net Plus Plus scheme.",
+    longDescription:
+      "This retail property required a smart and efficient solar solution to handle high daytime electricity demand while maintaining uninterrupted business operations. The 25kW on-grid system is strategically designed to maximize solar generation during peak business hours, significantly reducing electricity costs. With integration to the Net Plus Plus scheme, excess energy is exported back to the grid, improving overall return on investment. The system ensures reliable performance, helping the business operate more sustainably while lowering long-term operational expenses.",
     testimonial: {
-      name: 'James L., Malibu Ridge',
-      text: 'Smart Solar achieved the impossible. They hid 45kW of power completely out of sight from our primary viewpoints. Our energy bills vanished overnight, and the battery backup hasn\'t flinched during a single grid failure.',
+      name: "Chaminda Kulasekara",
+      text: "Smart Solar delivered a perfect solution for both my home and retail shop. Our electricity costs have reduced significantly, and we now generate extra income by exporting excess power to the grid. It’s a smart investment that supports both our daily living and business operations.",
       rating: 5,
+      designation: "CEO"
     },
     stats: [
-      { value: '45kW', label: 'System Size' },
-      { value: '95%', label: 'Energy Offset' },
-      { value: '$280k', label: 'Savings / 25yr' },
+      { value: "25kW", label: "System Size" },
+      // { value: "On-Grid", label: "System Type" },
+      { value: "Net Plus Plus", label: "Scheme" },
     ],
   },
   {
-    id: 'p2',
-    image: '/portfolio-2.png',
-    images: ['/portfolio-2.png', '/portfolio-5.png', '/portfolio-6.png', '/portfolio-1.png'],
-    title: 'Distribution Center',
-    location: 'New Jersey, USA',
-    category: 'commercial',
-    description: 'Massive 2.4MW rooftop installation on a 180,000 sq ft distribution warehouse. Powering daily operations with clean energy.',
-    longDescription: 'Logistics fulfillment demands peak energy 24/7. By engineering a gigantic 2.4MW solar umbrella resting over their primary distribution warehouse, we enabled the client to entirely offset daytime operations, minimizing enormous operational grid expenses and achieving carbon-neutral distribution tracking.',
+    id: "p2",
+    image: "/p4_pic1.jpg",
+    images: [
+      "/p4_pic1.jpg",
+      "/p4_pic2.jpg",
+      "/p4_pic3.jpg",
+      // "/portfolio-1.png",
+    ],
+    title: "",
+    location: "Katugasthota",
+    category: "residential",
+    description:
+      "15kW on-grid solar system for a modern home, reducing electricity bills while generating extra income through the Net Plus Plus scheme.",
+    longDescription:
+      "This residence required a reliable and efficient solar solution to manage high household electricity usage. The 15kW on-grid system is designed to maximize daytime energy generation, significantly reducing dependence on the national grid. During periods of low consumption, excess electricity is exported back to the grid under the Net Plus Plus scheme, creating an additional source of income. The system ensures consistent performance, helping the homeowner lower long-term energy costs while embracing sustainable living.",
     testimonial: {
-      name: 'Sarah Jenkins, Facilities Director',
-      text: 'Deploying a 2.4 Megawatt system without disrupting a 24-hour logistics operation is no small feat. The engineering team executed the installation perfectly. We hit our ROI targets a year early.',
+      name: "E S Egodawita",
+      text: "Smart Solar delivered a perfect solution for our home. Our electricity bills have dropped significantly, and earning extra income from excess energy is a great benefit. The system works flawlessly.",
       rating: 5,
+      designation: "CEO"
     },
     stats: [
-      { value: '2.4MW', label: 'System Size' },
-      { value: '3,200', label: 'Panels' },
-      { value: '€1.8M', label: 'Savings / 25yr' },
+      { value: "15KW", label: "System Size" },
+      { value: "On-Grid", label: "System Type" },
+      // { value: "€1.8M", label: "Savings / 25yr" },
+    ],
+  },
+  // {
+  //   id: "p3",
+  //   image: "/p6_pic1.jpg",
+  //   images: [
+  //     "/p6_pic1.jpg",
+  //     "/portfolio-4.png",
+  //     "/portfolio-1.png",
+  //     "/portfolio-2.png",
+  //   ],
+  //   title: "Mediterranean Estate",
+  //   location: "French Riviera",
+  //   category: "residential",
+  //   description:
+  //     "Seamless integration of 30kW solar array on a heritage villa, preserving architectural aesthetics while maximizing output.",
+  //   longDescription:
+  //     "Strict heritage preservation guidelines in the French Riviera necessitated a remarkably discreet installation. By incorporating low-glare, flush-mounted arrays hidden from street elevation, the estate achieved a complete 100% energy offset while flawlessly retaining its historic structural integrity.",
+  //   testimonial: {
+  //     name: "Antoine M., Estate Owner",
+  //     text: "The architectural board approved the design immediately because of how flush and beautifully integrated the panels were. It preserved the heritage of our home while modernizing our footprint.",
+  //     rating: 5,
+  //   },
+  //   stats: [
+  //     { value: "30kW", label: "System Size" },
+  //     { value: "100%", label: "Energy Offset" },
+  //     { value: "€180k", label: "Savings / 25yr" },
+  //   ],
+  // },
+  {
+    id: "p4",
+    image: "/p9_pic1.jpg",
+    images: ["/p9_pic1.jpg", "/p9_pic2.jpg", "/p9_pic3.jpg"],
+    title: "",
+    location: "Ukuwela",
+    category: "residential",
+    description:
+      "25kW on-grid solar system for a residence, reducing electricity costs while benefiting from the Net Accounting scheme.",
+    longDescription:
+      "This residential property required a high-capacity solar solution to manage its daily energy consumption efficiently. The 25kW on-grid system is designed to maximize solar generation during daytime hours, significantly reducing reliance on the national grid. Under the Net Accounting scheme, excess energy generated is exported to the grid and credited, providing financial returns over time. The system ensures stable performance, helping the homeowner reduce long-term electricity expenses while adopting a more sustainable energy solution.",
+    testimonial: {
+      name: "J. L. R Mahindasiri",
+      text: "Smart Solar installed a reliable system for our home that has significantly reduced our electricity bills. The Net Accounting scheme gives us great value by utilizing excess energy efficiently. Highly satisfied with the performance.",
+      rating: 5,
+      designation: "CEO"
+    },
+    stats: [
+      { value: "25kW", label: "System Size" },
+      { value: "On-Grid", label: "System Type" },
+      { value: "Net Accounting", label: "Scheme" },
     ],
   },
   {
-    id: 'p3',
-    image: '/portfolio-3.png',
-    images: ['/portfolio-3.png', '/portfolio-4.png', '/portfolio-1.png', '/portfolio-2.png'],
-    title: 'Mediterranean Estate',
-    location: 'French Riviera',
-    category: 'residential',
-    description: 'Seamless integration of 30kW solar array on a heritage villa, preserving architectural aesthetics while maximizing output.',
-    longDescription: 'Strict heritage preservation guidelines in the French Riviera necessitated a remarkably discreet installation. By incorporating low-glare, flush-mounted arrays hidden from street elevation, the estate achieved a complete 100% energy offset while flawlessly retaining its historic structural integrity.',
+    id: "p5",
+    image: "/p11_pic1.jpg",
+    images: [
+      "/p11_pic2.jpg",
+      "/p11_pic3.jpg",
+      "/p11_pic1.jpg",
+      "/p11_pic4.jpg",
+    ],
+    title: "",
+    location: "Matale",
+    category: "residential",
+    description:
+      "20kW on-grid solar system installed on a slab rooftop for a residence, reducing electricity bills and maximizing energy efficiency.",
+    longDescription:
+      "This residential property required an efficient solar solution to utilize its slab rooftop space effectively. The 20kW on-grid system was carefully designed to ensure optimal panel placement for maximum sunlight exposure while maintaining structural safety and aesthetics. The system significantly reduces household electricity costs by generating power during daytime usage. Excess energy is exported to the grid under the Net Plus Plus scheme, providing additional financial benefits. This installation ensures reliable performance while supporting sustainable and cost-effective living.",
     testimonial: {
-      name: 'Antoine M., Estate Owner',
-      text: 'The architectural board approved the design immediately because of how flush and beautifully integrated the panels were. It preserved the heritage of our home while modernizing our footprint.',
+      name: "Saman Bandara",
+      text: "Smart Solar did a great job with our home installation. They made the best use of our rooftop space, and our electricity bills have reduced significantly. The system works perfectly every day.",
       rating: 5,
+      designation: "CEO"
     },
     stats: [
-      { value: '30kW', label: 'System Size' },
-      { value: '100%', label: 'Energy Offset' },
-      { value: '€180k', label: 'Savings / 25yr' },
+      { value: "20kW", label: "System Size" },
+      { value: "On-Grid", label: "System Type" },
+      // { value: "Slab Roof", label: "Installation Type" },
     ],
   },
   {
-    id: 'p4',
-    image: '/portfolio-4.png',
-    images: ['/portfolio-4.png', '/portfolio-5.png', '/portfolio-2.png', '/portfolio-6.png'],
-    title: 'Mountain Solar Farm',
-    location: 'Canterbury, New Zealand',
-    category: 'commercial',
-    description: 'Utility-scale 15MW ground-mounted solar farm spanning 75 acres, supplying clean energy to over 4,000 households.',
-    longDescription: 'Constructed amid challenging, volatile mountain weather conditions, this robust utility-scale initiative required reinforced tracking mounting capable of surviving extreme wind uplift. It now delivers 15MW directly into the local Canterbury grid, providing sustainable lifeblood to 4,000 regional properties.',
-    testimonial: {
-      name: 'David R., Regional Energy Council',
-      text: 'The structural integrity of this installation is incredible. We\'ve had record winds this season and the tracking mounts didn\'t yield an inch. A truly spectacular engineering achievement for the region.',
-      rating: 4,
-    },
-    stats: [
-      { value: '15MW', label: 'Capacity' },
-      { value: '4,000+', label: 'Homes Powered' },
-      { value: '75', label: 'Acres' },
+    id: "p6",
+    image: "/p13_pic1.jpg",
+    images: [
+      "/p13_pic2.jpg",
+      "/p13_pic3.jpg",
+      "/p13_pic1.jpg",
+      "/p13_pic4.jpg",
     ],
-  },
-  {
-    id: 'p5',
-    image: '/portfolio-5.png',
-    images: ['/portfolio-5.png', '/portfolio-1.png', '/portfolio-3.png', '/portfolio-4.png'],
-    title: 'Urban Office Complex',
-    location: 'San Francisco, USA',
-    category: 'commercial',
-    description: 'Multi-rooftop 800kW installation across a downtown commercial complex, achieving LEED Platinum certification.',
-    longDescription: 'Commercial real estate owners aim to deliver best-in-class sustainability for prime tenants. This sprawling 800kW system spanned across 3 different interconnected high-rise buildings, functioning collaboratively to secure a coveted LEED Platinum certification for the massive complex.',
+    title: "",
+    location: "Hadeniya",
+    category: "residential",
+    description:
+      "15kW on-grid solar system for a residence, reducing electricity costs while benefiting from the Net Accounting scheme.",
+    longDescription:
+      "This residential property required an efficient and cost-effective solar solution to manage daily electricity usage. The 15kW on-grid system is designed to maximize energy generation during daytime hours, significantly reducing dependence on the national grid. Under the Net Accounting scheme, excess energy generated is exported to the grid and credited, providing long-term financial benefits. The system ensures reliable performance, helping the homeowner lower electricity expenses while embracing a more sustainable energy solution.",
     testimonial: {
-      name: 'Elena T., Principal Developer',
-      text: 'Securing LEED Platinum requires passing intense scrutiny. Smart Solar designed an elegant multi-roof system that skyrocketed our environmental scores and thrilled our tech tenants.',
+      name: "Inoka Bandara",
+      text: "Smart Solar installed a reliable system for our home that has greatly reduced our electricity bills. The Net Accounting scheme gives us excellent value by making use of excess energy. Very happy with the overall performance.",
       rating: 5,
+      designation: "Teacher"
     },
     stats: [
-      { value: '800kW', label: 'System Size' },
-      { value: 'LEED', label: 'Platinum' },
-      { value: '$950k', label: 'Savings / 25yr' },
-    ],
-  },
-  {
-    id: 'p6',
-    image: '/portfolio-6.png',
-    images: ['/portfolio-6.png', '/portfolio-2.png', '/portfolio-1.png', '/portfolio-5.png'],
-    title: 'Heritage Farmstead',
-    location: 'Pennsylvania, USA',
-    category: 'residential',
-    description: 'Solar-powered modern farmhouse with 22kW system and full battery backup, blending sustainable tech with rural charm.',
-    longDescription: 'Farm infrastructure requires resilience. Rather than facing agricultural blackouts, this traditional property implemented a cutting-edge 22kW solar generator tied into a substantial battery reservoir, allowing crucial farm equipment and habitation to operate 100% off the centralized grid.',
-    testimonial: {
-      name: 'Marcus W., Farmstead Operations',
-      text: 'We used to lose thousands during grid outages when the milking parlors went down. With the new 22kW battery backup, our operations haven\'t skipped a single beat in three years.',
-      rating: 5,
-    },
-    stats: [
-      { value: '22kW', label: 'System Size' },
-      { value: '100%', label: 'Off-Grid' },
-      { value: '$120k', label: 'Savings / 25yr' },
+      { value: "15kW", label: "System Size" },
+      // { value: "On-Grid", label: "System Type" },
+      { value: "Net Accounting", label: "Scheme" },
     ],
   },
   // 9 New Additional Projects
   {
-    id: 'p7',
-    image: '/portfolio-1.png',
-    images: ['/portfolio-1.png', '/portfolio-3.png', '/portfolio-5.png', '/portfolio-6.png'],
-    title: 'Desert Winery Microgrid',
-    location: 'Tucson, Arizona',
-    category: 'commercial',
-    description: 'Custom 150kW canopy installation over vineyard parking, powering the main processing facility completely off-grid during peak hours.',
-    longDescription: 'In harsh desert climates, dual-purpose structures are phenomenal. We deployed an incredible 150kW canopy array that shaded visitor vehicles from extreme temperatures while simultaneously generating enough immediate power to completely float the heavy processing demands of winemaking during peak sunlight windows.',
+    id: "p7",
+    image: "/p2_pic1.jpg",
+    images: ["/p2_pic1.jpg", "/p2_pic2.jpg", "/p2_pic3.jpg"],
+    title: "",
+    location: "Mahawatte",
+    category: "residential",
+    description:
+      "3kW on-grid solar system for a home, reducing electricity bills and supporting daily energy needs efficiently.",
+    longDescription:
+      "This residential property required a compact and cost-effective solar solution to manage everyday electricity usage. The 3kW on-grid system is designed to generate power during daytime hours, helping to reduce reliance on the national grid and lower monthly electricity bills. The system integrates seamlessly with the grid, ensuring stable and reliable performance while making efficient use of available rooftop space. It provides a practical step towards sustainable and affordable energy for the household.",
     testimonial: {
-      name: 'Sophia L., Winery Owner',
-      text: 'The solar canopies are stunning. Our guests constantly compliment the shaded parking, and I get to smile knowing those same canopies are powering our entire fermentation process for free.',
+      name: "Sophia L.",
+      text: "Smart Solar provided a simple and efficient solution for our home. We've seen a clear reduction in our electricity bills, and the system works smoothly every day.",
       rating: 5,
+      designation: "CEO"
     },
     stats: [
-      { value: '150kW', label: 'System Size' },
-      { value: 'Zero', label: 'Carbon Emissions' },
-      { value: '$350k', label: 'Savings / 25yr' },
+      { value: "3kW", label: "System Size" },
+      { value: "On-Grid", label: "System Type" },
+      // { value: "Residential", label: "Project Type" },
     ],
   },
   {
-    id: 'p8',
-    image: '/portfolio-2.png',
-    images: ['/portfolio-2.png', '/portfolio-4.png', '/portfolio-1.png', '/portfolio-3.png'],
-    title: 'Regional Hospital',
-    location: 'Melbourne, Australia',
-    category: 'commercial',
-    description: 'Crucial 1.2MW installation with triple-redundant medical-grade battery backups ensuring uninterrupted critical care.',
-    longDescription: 'Hospitals simply cannot go dark. Beyond serving as an economic power source, this 1.2MW solar deployment acts as the foundation of a highly rigorous triple-redundant medical backup infrastructure. Even in a worst-case blackout, patient monitoring and surgical lighting proceed without a flinch.',
+    id: "p8",
+    image: "/p8_pic1.jpg",
+    images: ["/p8_pic1.jpg", "/p8_pic2.jpg", "/p8_pic3.jpg", "/p8_pic4.jpg"],
+    title: "",
+    location: "Samandhwa",
+    category: "commercial",
+    description:
+      "40kW on-grid solar system installed on a custom roof structure, designed purely for energy generation and income through the Net Plus Plus scheme.",
+    longDescription:
+      "This project was developed as a dedicated solar investment with no on-site electricity consumption. The 40kW on-grid system is installed on a purpose-built roof structure to maximize solar exposure and energy generation. All electricity produced is exported directly to the grid under the Net Plus Plus scheme, generating a steady income stream for the owner. The elevated structure ensures optimal panel orientation and cooling, improving efficiency and long-term performance. This setup represents a smart, passive income solution through renewable energy.",
     testimonial: {
-      name: 'Dr. Alistair G., Chief Medical Officer',
-      text: 'Energy security translates directly to patient safety. The seamless switchover during grid interruptions is completely unnoticeable. It is the most vital upgrade our hospital has ever made.',
+      name: "Arunashantha",
+      text: "This was purely an investment for us, and Smart Solar delivered exactly what we needed. The system generates consistent income every month, and the installation quality is excellent.",
       rating: 5,
+      designation: "CEO"
     },
     stats: [
-      { value: '1.2MW', label: 'System Size' },
-      { value: '24/7', label: 'Power Security' },
-      { value: '4,500', label: 'Tons CO2 Offset' },
+      { value: "40kW", label: "System Size" },
+      { value: "On-Grid", label: "System Type" },
+      { value: "Net Plus Plus", label: "Scheme" },
     ],
   },
   {
-    id: 'p9',
-    image: '/portfolio-3.png',
-    images: ['/portfolio-3.png', '/portfolio-5.png', '/portfolio-6.png', '/portfolio-2.png'],
-    title: 'Eco-Friendly Suburb Sub-Division',
-    location: 'Austin, Texas',
-    category: 'residential',
-    description: 'Community-wide microgrid across 45 new homes sharing a collective 400kW solar field and centralized battery storage.',
-    longDescription: 'Breaking out of the individual home-owner paradigm, we architected a massive communal 400kW solar field. 45 separate modern dwellings pool their consumption into a localized microgrid, dramatically increasing cost-efficiency for individual buyers while democratizing premium green infrastructure.',
-    testimonial: {
-      name: 'Rachel B., Homeowner Association',
-      text: 'The communal microgrid is brilliant. We pay practically nothing for electricity, and sharing the 400kW solar field means none of us had to place panels directly on our beautiful new roofs.',
-      rating: 4,
-    },
-    stats: [
-      { value: '45', label: 'Homes Connected' },
-      { value: '400kW', label: 'Total Output' },
-      { value: 'Shared', label: 'Grid Architecture' },
+    id: "p9",
+    image: "/p12_pic1.jpg",
+    images: [
+      "/p12_pic2.jpg",
+      "/p12_pic1.jpg",
+      "/p12_pic3.jpg",
+      "/p12_pic4.jpg",
     ],
-  },
-  {
-    id: 'p10',
-    image: '/portfolio-4.png',
-    images: ['/portfolio-4.png', '/portfolio-1.png', '/portfolio-2.png', '/portfolio-5.png'],
-    title: 'Automotive Manufacturing Plant',
-    location: 'Stuttgart, Germany',
-    category: 'commercial',
-    description: 'Gigantic 5MW multi-roof array completely powering the vehicle assembly line during peak sunlight hours.',
-    longDescription: 'Heavy manufacturing demands astronomical electrical loads. Through the strategic placement of 12,000 distinct panels generating 5 Megawatts of peak force, this legendary vehicle assembly line decoupled its primary assembly robotics from fossil-fueled regional grids entirely.',
+    title: "",
+    location: "Meegammana",
+    category: "residential",
+    description:
+      "25kW on-grid solar system for a residence, reducing electricity costs while generating additional value through solar energy.",
+    longDescription:
+      "This residential property required a high-capacity solar solution to efficiently manage its daily electricity consumption. The 25kW on-grid system is designed to maximize energy generation during daytime hours, significantly reducing reliance on the national grid. Excess energy produced is exported under the Net Plus Plus scheme, creating an additional income stream. The system delivers reliable and consistent performance, helping the homeowner achieve long-term cost savings while embracing sustainable energy.",
     testimonial: {
-      name: 'Klaus M., Plant Manager',
-      text: 'We build the cars of the future, and now we build them using the energy of the future. The 5MW installation handles the immense load of our welding robotics flawlessly.',
+      name: "Mr Wikramsingha",
+      text: "Smart Solar installed a powerful system for our home that has greatly reduced our electricity bills. We also benefit from exporting excess energy, making it a valuable long-term investment.",
       rating: 5,
+      designation: "Painter"
     },
     stats: [
-      { value: '5MW', label: 'System Size' },
-      { value: '12,000', label: 'Panels Installed' },
-      { value: '€4.2M', label: 'Savings / 25yr' },
+      { value: "25kW", label: "System Size" },
+      { value: "On-Grid", label: "System Type" },
+      { value: "Net Plus Plus", label: "Scheme" },
     ],
   },
-  {
-    id: 'p11',
-    image: '/portfolio-5.png',
-    images: ['/portfolio-5.png', '/portfolio-6.png', '/portfolio-3.png', '/portfolio-1.png'],
-    title: 'Lakeside Cabin Retreat',
-    location: 'Ontario, Canada',
-    category: 'residential',
-    description: 'Fully off-grid 15kW installation serving a remote property. Engineered specifically for harsh winter performance and low-light charging.',
-    longDescription: 'Deep in the thick forests of Ontario, this ultra-premium remote property lacks any tether to standard civilization. We forged a heavy-duty 15kW installation customized for aggressive snow-shedding and optimized to devour and store low-angle winter sunlight.',
-    testimonial: {
-      name: 'Jonathan S., Property Owner',
-      text: 'We are completely cut off from the grid, yet we run heated floors and an electric sauna in the dead of winter. The snow sheds right off the panels, and the battery reserves seem endless.',
-      rating: 5,
-    },
-    stats: [
-      { value: '15kW', label: 'System Size' },
-      { value: '100%', label: 'Remote Off-Grid' },
-      { value: '2 Weeks', label: 'Battery Autonomy' },
-    ],
-  },
-  {
-    id: 'p12',
-    image: '/portfolio-6.png',
-    images: ['/portfolio-6.png', '/portfolio-4.png', '/portfolio-1.png', '/portfolio-2.png'],
-    title: 'Tech Campus Headquarters',
-    location: 'Seattle, Washington',
-    category: 'commercial',
-    description: 'Architecturally stunning 600kW BIPV (Building-Integrated Photovoltaics) facade replacing standard glass with energy-generating solar panels.',
-    longDescription: 'Traditional rack-mount panels weren\'t visually appealing enough for this futuristic tech campus. Instead, we deployed a spectacular 600kW BIPV facade, literally integrating the solar cells into the building\'s glass exterior structure—simultaneously providing shade while aggressively capturing solar power.',
-    testimonial: {
-      name: 'Amanda K., Head of Corporate Real Estate',
-      text: 'The solar glass facade is incredible. It looks like a billionaire\'s architectural dream but functions as an eco-warrior\'s powerhouse. Visitors are stunned when we tell them the windows are generating electricity.',
-      rating: 5,
-    },
-    stats: [
-      { value: '600kW', label: 'BIPV Output' },
-      { value: 'Net-Zero', label: 'Energy Rating' },
-      { value: 'Unique', label: 'Glass Integration' },
-    ],
-  },
-  {
-    id: 'p13',
-    image: '/portfolio-1.png',
-    images: ['/portfolio-1.png', '/portfolio-2.png', '/portfolio-5.png', '/portfolio-6.png'],
-    title: 'Mega Retail Mall',
-    location: 'Dubai, UAE',
-    category: 'commercial',
-    description: 'Massive 3MW shading structure over parking lots, keeping thousands of vehicles cool while generating immense clean energy for the mall.',
-    longDescription: 'In extreme desert environments, vehicle shading is as important as power generation. By installing sprawling geometric 3MW structures over miles of empty parking asphalt, customers find a shaded sanctuary while the colossal mall dynamically drastically reduces air-conditioning expenditure.',
-    testimonial: {
-      name: 'Faisal A., Mall Operations Manager',
-      text: 'Our visitor retention jumped simply because people didn\'t want to leave their cars baking in the sun. The 3MW array cooled our parking lots down by 15 degrees and wiped out our lighting bill.',
-      rating: 4,
-    },
-    stats: [
-      { value: '3MW', label: 'Shading Capacity' },
-      { value: '1,500', label: 'Cars Shaded' },
-      { value: '$2M', label: 'Savings / 25yr' },
-    ],
-  },
-  {
-    id: 'p14',
-    image: '/portfolio-2.png',
-    images: ['/portfolio-2.png', '/portfolio-1.png', '/portfolio-3.png', '/portfolio-4.png'],
-    title: 'Agricultural Pumping Station',
-    location: 'Central Valley, California',
-    category: 'commercial',
-    description: 'Robust 850kW solar array powering massive irrigation systems. Integrates dynamic tracking to follow the sun and maximize water flow.',
-    longDescription: 'Water is literal money in agricultural hubs. We erected a specialized 850kW array equipped with automated dual-axis sun-tracking mechanics. Early morning, midday, or dusk, the system physically pivots to follow the sun, ensuring continuous power output for multi-million gallon irrigation pumps.',
-    testimonial: {
-      name: 'George H., Agricultural Director',
-      text: 'Pumping water used to be our single highest overhead. By implementing the sun-tracking array, we get peak pump power from 7 AM to 6 PM. It has fundamentally changed the economics of our farm.',
-      rating: 5,
-    },
-    stats: [
-      { value: '850kW', label: 'System Size' },
-      { value: 'Tracker', label: 'Dual-Axis Tech' },
-      { value: '1M Gallons', label: 'Pumped Daily' },
-    ],
-  },
-  {
-    id: 'p15',
-    image: '/portfolio-3.png',
-    images: ['/portfolio-3.png', '/portfolio-6.png', '/portfolio-1.png', '/portfolio-5.png'],
-    title: 'Modern Metro Townhouse',
-    location: 'London, UK',
-    category: 'residential',
-    description: 'Sleek, flush-mounted 8kW rooftop system strictly adhering to historical city preservation guidelines while eliminating electric bills.',
-    longDescription: 'Navigating intensely rigid city heritage parameters requires finesse. We negotiated and secured an 8kW system that mounts completely invisible from the walking thoroughfare below—modernizing a classic townhome to function entirely independently from the grid.',
-    testimonial: {
-      name: 'Victoria E., Townhouse Residence',
-      text: 'I honestly did not think we would get approval. Smart Solar designed an 8kW system that the heritage committee loved. You can\'t see a single panel from the street, yet my utility bill is zero.',
-      rating: 5,
-    },
-    stats: [
-      { value: '8kW', label: 'Flush System Size' },
-      { value: '85%', label: 'Energy Offset' },
-      { value: 'Passed', label: 'Heritage Check' },
-    ],
-  }
+
+  // {
+  //   id: "p10",
+  //   image: "/portfolio-4.png",
+  //   images: [
+  //     "/portfolio-4.png",
+  //     "/portfolio-1.png",
+  //     "/portfolio-2.png",
+  //     "/portfolio-5.png",
+  //   ],
+  //   title: "Automotive Manufacturing Plant",
+  //   location: "Stuttgart, Germany",
+  //   category: "commercial",
+  //   description:
+  //     "Gigantic 5MW multi-roof array completely powering the vehicle assembly line during peak sunlight hours.",
+  //   longDescription:
+  //     "Heavy manufacturing demands astronomical electrical loads. Through the strategic placement of 12,000 distinct panels generating 5 Megawatts of peak force, this legendary vehicle assembly line decoupled its primary assembly robotics from fossil-fueled regional grids entirely.",
+  //   testimonial: {
+  //     name: "Klaus M., Plant Manager",
+  //     text: "We build the cars of the future, and now we build them using the energy of the future. The 5MW installation handles the immense load of our welding robotics flawlessly.",
+  //     rating: 5,
+  //   },
+  //   stats: [
+  //     { value: "5MW", label: "System Size" },
+  //     { value: "12,000", label: "Panels Installed" },
+  //     { value: "€4.2M", label: "Savings / 25yr" },
+  //   ],
+  // },
+  // {
+  //   id: "p11",
+  //   image: "/portfolio-5.png",
+  //   images: [
+  //     "/portfolio-5.png",
+  //     "/portfolio-6.png",
+  //     "/portfolio-3.png",
+  //     "/portfolio-1.png",
+  //   ],
+  //   title: "Lakeside Cabin Retreat",
+  //   location: "Ontario, Canada",
+  //   category: "residential",
+  //   description:
+  //     "Fully off-grid 15kW installation serving a remote property. Engineered specifically for harsh winter performance and low-light charging.",
+  //   longDescription:
+  //     "Deep in the thick forests of Ontario, this ultra-premium remote property lacks any tether to standard civilization. We forged a heavy-duty 15kW installation customized for aggressive snow-shedding and optimized to devour and store low-angle winter sunlight.",
+  //   testimonial: {
+  //     name: "Jonathan S., Property Owner",
+  //     text: "We are completely cut off from the grid, yet we run heated floors and an electric sauna in the dead of winter. The snow sheds right off the panels, and the battery reserves seem endless.",
+  //     rating: 5,
+  //   },
+  //   stats: [
+  //     { value: "15kW", label: "System Size" },
+  //     { value: "100%", label: "Remote Off-Grid" },
+  //     { value: "2 Weeks", label: "Battery Autonomy" },
+  //   ],
+  // },
+  // {
+  //   id: "p12",
+  //   image: "/portfolio-6.png",
+  //   images: [
+  //     "/portfolio-6.png",
+  //     "/portfolio-4.png",
+  //     "/portfolio-1.png",
+  //     "/portfolio-2.png",
+  //   ],
+  //   title: "Tech Campus Headquarters",
+  //   location: "Seattle, Washington",
+  //   category: "commercial",
+  //   description:
+  //     "Architecturally stunning 600kW BIPV (Building-Integrated Photovoltaics) facade replacing standard glass with energy-generating solar panels.",
+  //   longDescription:
+  //     "Traditional rack-mount panels weren't visually appealing enough for this futuristic tech campus. Instead, we deployed a spectacular 600kW BIPV facade, literally integrating the solar cells into the building's glass exterior structure—simultaneously providing shade while aggressively capturing solar power.",
+  //   testimonial: {
+  //     name: "Amanda K., Head of Corporate Real Estate",
+  //     text: "The solar glass facade is incredible. It looks like a billionaire's architectural dream but functions as an eco-warrior's powerhouse. Visitors are stunned when we tell them the windows are generating electricity.",
+  //     rating: 5,
+  //   },
+  //   stats: [
+  //     { value: "600kW", label: "BIPV Output" },
+  //     { value: "Net-Zero", label: "Energy Rating" },
+  //     { value: "Unique", label: "Glass Integration" },
+  //   ],
+  // },
+  // {
+  //   id: "p13",
+  //   image: "/portfolio-1.png",
+  //   images: [
+  //     "/portfolio-1.png",
+  //     "/portfolio-2.png",
+  //     "/portfolio-5.png",
+  //     "/portfolio-6.png",
+  //   ],
+  //   title: "Mega Retail Mall",
+  //   location: "Dubai, UAE",
+  //   category: "commercial",
+  //   description:
+  //     "Massive 3MW shading structure over parking lots, keeping thousands of vehicles cool while generating immense clean energy for the mall.",
+  //   longDescription:
+  //     "In extreme desert environments, vehicle shading is as important as power generation. By installing sprawling geometric 3MW structures over miles of empty parking asphalt, customers find a shaded sanctuary while the colossal mall dynamically drastically reduces air-conditioning expenditure.",
+  //   testimonial: {
+  //     name: "Faisal A., Mall Operations Manager",
+  //     text: "Our visitor retention jumped simply because people didn't want to leave their cars baking in the sun. The 3MW array cooled our parking lots down by 15 degrees and wiped out our lighting bill.",
+  //     rating: 4,
+  //   },
+  //   stats: [
+  //     { value: "3MW", label: "Shading Capacity" },
+  //     { value: "1,500", label: "Cars Shaded" },
+  //     { value: "$2M", label: "Savings / 25yr" },
+  //   ],
+  // },
+  // {
+  //   id: "p14",
+  //   image: "/portfolio-2.png",
+  //   images: [
+  //     "/portfolio-2.png",
+  //     "/portfolio-1.png",
+  //     "/portfolio-3.png",
+  //     "/portfolio-4.png",
+  //   ],
+  //   title: "Agricultural Pumping Station",
+  //   location: "Central Valley, California",
+  //   category: "commercial",
+  //   description:
+  //     "Robust 850kW solar array powering massive irrigation systems. Integrates dynamic tracking to follow the sun and maximize water flow.",
+  //   longDescription:
+  //     "Water is literal money in agricultural hubs. We erected a specialized 850kW array equipped with automated dual-axis sun-tracking mechanics. Early morning, midday, or dusk, the system physically pivots to follow the sun, ensuring continuous power output for multi-million gallon irrigation pumps.",
+  //   testimonial: {
+  //     name: "George H., Agricultural Director",
+  //     text: "Pumping water used to be our single highest overhead. By implementing the sun-tracking array, we get peak pump power from 7 AM to 6 PM. It has fundamentally changed the economics of our farm.",
+  //     rating: 5,
+  //   },
+  //   stats: [
+  //     { value: "850kW", label: "System Size" },
+  //     { value: "Tracker", label: "Dual-Axis Tech" },
+  //     { value: "1M Gallons", label: "Pumped Daily" },
+  //   ],
+  // },
+  // {
+  //   id: "p15",
+  //   image: "/portfolio-3.png",
+  //   images: [
+  //     "/portfolio-3.png",
+  //     "/portfolio-6.png",
+  //     "/portfolio-1.png",
+  //     "/portfolio-5.png",
+  //   ],
+  //   title: "Modern Metro Townhouse",
+  //   location: "London, UK",
+  //   category: "residential",
+  //   description:
+  //     "Sleek, flush-mounted 8kW rooftop system strictly adhering to historical city preservation guidelines while eliminating electric bills.",
+  //   longDescription:
+  //     "Navigating intensely rigid city heritage parameters requires finesse. We negotiated and secured an 8kW system that mounts completely invisible from the walking thoroughfare below—modernizing a classic townhome to function entirely independently from the grid.",
+  //   testimonial: {
+  //     name: "Victoria E., Townhouse Residence",
+  //     text: "I honestly did not think we would get approval. Smart Solar designed an 8kW system that the heritage committee loved. You can't see a single panel from the street, yet my utility bill is zero.",
+  //     rating: 5,
+  //   },
+  //   stats: [
+  //     { value: "8kW", label: "Flush System Size" },
+  //     { value: "85%", label: "Energy Offset" },
+  //     { value: "Passed", label: "Heritage Check" },
+  //   ],
+  // },
 ];

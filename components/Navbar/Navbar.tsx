@@ -3,12 +3,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import styles from './Navbar.module.css';
 
 export const Navbar = () => {
   const [activeLink, setActiveLink] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,24 +28,29 @@ export const Navbar = () => {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, linkName: string) => {
     setIsMobileMenuOpen(false);
-    // If it's the home link, we can just scroll to top
+    e.preventDefault();
+    setActiveLink(linkName);
+
+    // If not on the home page, navigate to home first with hash
+    if (pathname !== '/') {
+      if (linkName === 'home') {
+        router.push('/');
+      } else {
+        router.push(`/#${linkName}`);
+      }
+      return;
+    }
+
+    // On the home page — scroll to section
     if (linkName === 'home') {
-      e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      setActiveLink(linkName);
       return;
     }
     
-    // For other links, find the element and scroll to it
-    e.preventDefault();
-    setActiveLink(linkName);
-    
-    const targetId = linkName;
-    const element = document.getElementById(targetId);
+    const element = document.getElementById(linkName);
     
     if (element) {
-      // Get the navbar height to offset the scroll
-      const navbarHeight = 114; // 80px nav + 34px topbar
+      const navbarHeight = 114;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
   

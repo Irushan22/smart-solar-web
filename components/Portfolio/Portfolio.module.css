@@ -2,7 +2,7 @@
 .portfolio {
   position: relative;
   padding: 7rem 2rem;
-  background-color: #f7f9fc;
+  background-color: #0B192C;
   overflow: hidden;
 }
 
@@ -13,7 +13,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(rgba(11, 25, 44, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 30px 30px;
   pointer-events: none;
 }
@@ -24,7 +24,7 @@
   right: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(115, 176, 66, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(115, 176, 66, 0.08) 0%, transparent 70%);
   border-radius: 50%;
   filter: blur(80px);
   pointer-events: none;
@@ -61,7 +61,7 @@
   font-size: clamp(1.75rem, 2.5vw, 2.5rem);
   font-weight: 800;
   text-transform: uppercase;
-  color: #0B192C;
+  color: #ffffff;
   line-height: 1.2;
   letter-spacing: -0.5px;
   margin-bottom: 1.25rem;
@@ -78,7 +78,7 @@
   font-family: var(--font-outfit), sans-serif;
   font-size: 1rem;
   line-height: 1.7;
-  color: rgba(11, 25, 44, 0.55);
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 400;
   text-transform: none;
   max-width: 600px;
@@ -102,9 +102,9 @@
   text-transform: uppercase;
   padding: 0.65rem 1.75rem;
   border-radius: 100px;
-  border: 1.5px solid rgba(11, 25, 44, 0.12);
-  background: white;
-  color: #152e52;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -130,7 +130,7 @@
 .filterPill:hover {
   border-color: #73b042;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(115, 176, 66, 0.15);
+  box-shadow: 0 6px 20px rgba(115, 176, 66, 0.2);
 }
 
 .filterPillActive {
@@ -415,7 +415,8 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: white;
-  background: linear-gradient(135deg, #152e52 0%, #0B192C 100%);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -440,7 +441,7 @@
 
 .ctaButton:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(11, 25, 44, 0.3);
+  box-shadow: 0 12px 35px rgba(115, 176, 66, 0.3);
 }
 
 .ctaButton:hover::before {

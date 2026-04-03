@@ -1,0 +1,242 @@
+/* ── Section ───────────────────────────────────────── */
+.brands {
+  position: relative;
+  padding: 7rem 2rem;
+  background-color: #f7f9fc;
+  overflow: hidden;
+}
+
+/* ── Decorative ────────────────────────────────────── */
+.bgGlow {
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(115, 176, 66, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* ── Container ─────────────────────────────────────── */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+/* ── Header ────────────────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.subtitle {
+  font-family: var(--font-outfit), sans-serif;
+  color: #73b042;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #0B192C;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.25rem;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #73b042 0%, #4a9630 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.headerDescription {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(11, 25, 44, 0.55);
+  font-weight: 400;
+  text-transform: none;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Carousel Wrapper ──────────────────────────────── */
+.carouselWrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+/* ── Fade Masks ────────────────────────────────────── */
+.fadeMaskLeft,
+.fadeMaskRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fadeMaskLeft {
+  left: 0;
+  background: linear-gradient(to right, #f7f9fc 0%, transparent 100%);
+}
+
+.fadeMaskRight {
+  right: 0;
+  background: linear-gradient(to left, #f7f9fc 0%, transparent 100%);
+}
+
+/* ── Carousel Track ────────────────────────────────── */
+.carouselTrack {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 25s linear infinite;
+  width: max-content;
+}
+
+.carouselWrapper:hover .carouselTrack {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Move exactly half (the original set) so it loops seamlessly */
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+
+/* ── Brand Card ────────────────────────────────────── */
+.brandCard {
+  flex-shrink: 0;
+  width: 200px;
+  background: white;
+  border: 1px solid rgba(11, 25, 44, 0.06);
+  border-radius: 1.25rem;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+}
+
+.brandCard:hover {
+  border-color: rgba(115, 176, 66, 0.2);
+  box-shadow: 0 8px 32px rgba(115, 176, 66, 0.1);
+  transform: translateY(-4px);
+}
+
+/* ── Logo ──────────────────────────────────────────── */
+.logoWrapper {
+  width: 140px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandLogo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brandCard:hover .brandLogo {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* ── Brand Name ────────────────────────────────────── */
+.brandName {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(11, 25, 44, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: color 0.4s ease;
+}
+
+.brandCard:hover .brandName {
+  color: #0B192C;
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .fadeMaskLeft,
+  .fadeMaskRight {
+    width: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brands {
+    padding: 5rem 1rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .brandCard {
+    width: 170px;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .logoWrapper {
+    width: 110px;
+    height: 55px;
+  }
+
+  .fadeMaskLeft,
+  .fadeMaskRight {
+    width: 50px;
+  }
+
+  .carouselTrack {
+    gap: 1.25rem;
+    animation-duration: 20s;
+  }
+}
+
+@media (max-width: 480px) {
+  .brandCard {
+    width: 150px;
+    padding: 1.25rem 1rem;
+    gap: 1rem;
+  }
+
+  .logoWrapper {
+    width: 90px;
+    height: 45px;
+  }
+
+  .brandName {
+    font-size: 0.7rem;
+  }
+}

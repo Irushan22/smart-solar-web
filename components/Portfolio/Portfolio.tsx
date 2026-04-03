@@ -122,7 +122,7 @@ export const Portfolio = () => {
                       ))}
                     </div>
                     <div className={styles.overlayLink}>
-                      View Case Study
+                      View More
                       <svg
                         width="14"
                         height="14"
