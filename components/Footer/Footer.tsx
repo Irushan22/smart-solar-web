@@ -74,7 +74,7 @@ export const Footer = () => {
               </div>
 
               {/* Newsletter */}
-              <div className={styles.newsletter}>
+              {/* <div className={styles.newsletter}>
                 <span className={styles.linkColumnTitle}>Newsletter</span>
                 <div className={styles.newsletterInput}>
                   <input
@@ -89,7 +89,7 @@ export const Footer = () => {
                     </svg>
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
