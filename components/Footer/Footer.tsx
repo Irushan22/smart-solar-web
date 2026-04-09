@@ -12,7 +12,7 @@ export const Footer = () => {
             <div className={styles.brandColumn}>
               <p className={styles.brandDescription}>
                 Leading the renewable energy revolution with premium solar solutions.
-                Powering homes and businesses with clean, sustainable energy since 2009.
+                Powering homes and businesses with clean, sustainable energy since 2017.
               </p>
               <div className={styles.socialLinks}>
                 <a href="https://www.facebook.com/share/1L7rppR49U/?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Facebook">

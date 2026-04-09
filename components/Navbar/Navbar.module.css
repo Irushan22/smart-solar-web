@@ -92,7 +92,7 @@
 .rightContent {
   display: flex;
   align-items: stretch;
-  gap: 3rem; /* Still keeps CTA button separated from nav links */
+  gap: 1rem; /* Still keeps CTA button separated from nav links */
 }
 
 .navLinks {

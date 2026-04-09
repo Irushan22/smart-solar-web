@@ -24,7 +24,7 @@ export const About = () => {
 
             {/* Floating experience badge */}
             <div className={styles.experienceBadge}>
-              <span className={styles.badgeNumber}>10+</span>
+              <span className={styles.badgeNumber}>8+</span>
               <span className={styles.badgeLabel}>Years of<br />Experience</span>
             </div>
 
@@ -35,17 +35,13 @@ export const About = () => {
           <div className={styles.contentColumn}>
             <span className={styles.subtitle}>WHO WE ARE</span>
             <h2 className={styles.title}>
-              Powering a <span className={styles.highlight}>Sustainable Future</span> with Smart Solar
+              Powering <span className={styles.highlight}>Sri Lanka</span> with Smart Solar Energy
             </h2>
             <p className={styles.description}>
-              At Smart Solar, we believe clean energy should be accessible to everyone.
-              With over 15 years of experience, our certified professionals deliver
-              state-of-the-art solar solutions tailored to your specific needs.
+              At Smart Solar, we believe going solar should be simple, affordable, and reliable for every home and business in Sri Lanka. With over 8 years of industry experience, our certified team delivers high-quality solar solutions designed to match your exact energy needs.
             </p>
             <p className={styles.description}>
-              We are committed to reducing carbon footprints while helping you save
-              significantly on energy costs. Our end-to-end service ensures a
-              seamless transition to solar power.
+             We don’t just install solar systems we help you reduce your electricity bills, gain energy independence, and invest in a smarter future. From consultation to installation and after-sales support, we handle everything for you.
             </p>
 
             {/* Feature highlights */}
@@ -70,8 +66,8 @@ export const About = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className={styles.featureTitle}>25-Year Comprehensive Warranty</h4>
-                  <p className={styles.featureText}>Full coverage for products and workmanship, giving you total peace of mind.</p>
+                  <h4 className={styles.featureTitle}>25-Year Warranty & Reliable Support</h4>
+                  <p className={styles.featureText}>Enjoy long-term peace of mind with strong warranties and ongoing technical support you can depend on.</p>
                 </div>
               </div>
 

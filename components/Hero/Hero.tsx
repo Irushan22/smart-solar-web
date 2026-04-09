@@ -32,9 +32,11 @@ export const Hero = () => {
           </h1>
 
           <p className={styles.subtitle}>
-            Transform your home into a sustainable powerhouse with premium
+            {/* Transform your home into a sustainable powerhouse with premium
             solar solutions. High-efficiency panels designed for maximum
             performance and long-term savings.
+             */}
+             Reduce your electricity bills and enjoy reliable, long-term savings with high-performance solar systems built for Sri Lankan homes.
           </p>
 
         </div>
@@ -57,7 +59,7 @@ export const Hero = () => {
           </div>
           <div className={styles.statDivider}></div>
           <div className={styles.statItem}>
-            <span className={styles.statNumber}>10+</span>
+            <span className={styles.statNumber}>8+</span>
             <span className={styles.statLabel}>Years of Trust</span>
           </div>
         </div>

@@ -50,7 +50,7 @@ export const Navbar = () => {
     const element = document.getElementById(linkName);
     
     if (element) {
-      const navbarHeight = 114;
+      const navbarHeight = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
   

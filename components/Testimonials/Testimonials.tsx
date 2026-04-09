@@ -207,7 +207,7 @@ export const Testimonials = () => {
             <div className={styles.statLabel}>Would Recommend</div>
           </div>
           <div className={styles.statItem}>
-            <div className={`${styles.statValue} ${styles.statValueGreen}`}>10+</div>
+            <div className={`${styles.statValue} ${styles.statValueGreen}`}>8+</div>
             <div className={styles.statLabel}>Years of Trust</div>
           </div>
         </div>
