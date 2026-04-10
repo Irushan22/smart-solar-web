@@ -71,6 +71,7 @@ export const allProjects: Project[] = [
     stats: [
       { value: "15KW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
+      // { value: "Net Accounting", label: "Scheme" },
       // { value: "€1.8M", label: "Savings / 25yr" },
     ],
   },
@@ -79,8 +80,8 @@ export const allProjects: Project[] = [
     image: "/solar-installation-ukuwela-25kw-1.jpg",
     images: [
       "/solar-installation-ukuwela-25kw-1.jpg",
-      "/solar-installation-ukuwela-25kw-2.jpg",
-      "/solar-installation-ukuwela-25kw-3.jpg",
+      "/solar-installation-ukuwela-25kw-2.jpeg",
+      // "/solar-installation-ukuwela-25kw-3.jpg",
     ],
     title: "",
     location: "Ukuwela",
@@ -98,7 +99,7 @@ export const allProjects: Project[] = [
     stats: [
       { value: "25kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
-      { value: "Net Accounting", label: "Scheme" },
+      { value: "Net Plus Plus", label: "Scheme" },
     ],
   },
   {
@@ -126,6 +127,7 @@ export const allProjects: Project[] = [
     stats: [
       { value: "20kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
+      // { value: "Net Plus Plus", label: "Scheme" },
       // { value: "Slab Roof", label: "Installation Type" },
     ],
   },
@@ -154,7 +156,7 @@ export const allProjects: Project[] = [
     stats: [
       { value: "15kW", label: "System Size" },
       // { value: "On-Grid", label: "System Type" },
-      { value: "Net Accounting", label: "Scheme" },
+      { value: "Net Plus Plus", label: "Scheme" },
     ],
   },
   // 9 New Additional Projects
@@ -182,6 +184,7 @@ export const allProjects: Project[] = [
     stats: [
       { value: "3kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
+      // { value: "Net Accounting", label: "Scheme" },
       // { value: "Residential", label: "Project Type" },
     ],
   },
@@ -323,7 +326,7 @@ export const allProjects: Project[] = [
     stats: [
       { value: "5kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
-      // { value: "Net Plus Plus", label: "Scheme" },
+      // { value: "Net Accounting", label: "Scheme" },
     ],
   },
   {
@@ -331,7 +334,7 @@ export const allProjects: Project[] = [
     image: "/solar-installation-jambugahapitiya-5kw-1.png",
     images: [
       "/solar-installation-jambugahapitiya-5kw-1.png",
-      "/solar-installation-jambugahapitiya-5kw-2.jpeg",
+      "/solar-installation-jambugahapitiya-5kw-2.png",
       "/solar-installation-jambugahapitiya-5kw-3.jpeg",
     ],
     title: "",
@@ -351,7 +354,35 @@ export const allProjects: Project[] = [
     stats: [
       { value: "5kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
-      // { value: "Net Accounting", label: "Scheme" },
+      { value: "Net Accounting", label: "Scheme" },
     ],
   },
+  {
+    id: "p14",
+    image: "/solar-installation-gunnapana-5kw-3.png",
+    images: [
+      "/solar-installation-gunnapana-5kw-3.png",
+      "/solar-installation-gunnapana-5kw-2.jpeg",
+      "/solar-installation-gunnapana-5kw-1.jpeg",
+    ],
+    title: "",
+    location: "Gunnapana",
+    category: "residential",
+    description:
+      "A 5kW on-grid solar system installed for a residence, helping significantly reduce electricity bills while maximizing solar energy usage.",
+    longDescription:
+      "This project was designed to provide an efficient and cost-effective solar solution for a residential property in Jambugahapitiya. The 5kW on-grid system generates clean energy during the day, allowing the homeowner to reduce reliance on the national grid and lower monthly electricity expenses. With stable performance and seamless integration, the system supports a more sustainable and energy-efficient lifestyle.",
+    testimonial: {
+      name: "B. M. V. Pushpakumari",
+      text: "We are very satisfied with the solar installation. Our electricity bills have reduced noticeably, and the entire process was smooth and professionally handled by the team.",
+      rating: 5,
+      designation: "Bank Manager",
+    },
+
+    stats: [
+      { value: "5kW", label: "System Size" },
+      { value: "On-Grid", label: "System Type" },
+      { value: "Net Accounting", label: "Scheme" },
+    ],
+  }
 ];
