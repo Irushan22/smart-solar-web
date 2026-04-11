@@ -52,16 +52,16 @@ export const allProjects: Project[] = [
     image: "/solar-installation-katugasthota-15kw-1.jpg",
     images: [
       "/solar-installation-katugasthota-15kw-1.jpg",
-      "/solar-installation-katugasthota-15kw-2.jpg",
+      // "/solar-installation-katugasthota-15kw-2.jpg",
       "/solar-installation-katugasthota-15kw-3.jpg",
     ],
     title: "",
     location: "Katugasthota",
     category: "residential",
     description:
-      "15kW on-grid solar system for a modern home, reducing electricity bills while generating extra income through the Net Plus Plus scheme.",
+      "15kW on-grid solar system for a modern home, reducing electricity bills while generating extra income through the Net Accounting scheme.",
     longDescription:
-      "This residence required a reliable and efficient solar solution to manage high household electricity usage. The 15kW on-grid system is designed to maximize daytime energy generation, significantly reducing dependence on the national grid. During periods of low consumption, excess electricity is exported back to the grid under the Net Plus Plus scheme, creating an additional source of income. The system ensures consistent performance, helping the homeowner lower long-term energy costs while embracing sustainable living.",
+      "This residence required a reliable and efficient solar solution to manage high household electricity usage. The 15kW on-grid system is designed to maximize daytime energy generation, significantly reducing dependence on the national grid. During periods of low consumption, excess electricity is exported back to the grid under the Net Accounting scheme, creating an additional source of income. The system ensures consistent performance, helping the homeowner lower long-term energy costs while embracing sustainable living.",
     testimonial: {
       name: "Egodawita",
       text: "Smart Solar delivered a perfect solution for our home. Our electricity bills have dropped significantly, and earning extra income from excess energy is a great benefit. The system works flawlessly.",
@@ -77,22 +77,22 @@ export const allProjects: Project[] = [
   },
   {
     id: "p4",
-    image: "/solar-installation-ukuwela-25kw-1.jpg",
+    image: "/solar-installation-ukuwela-25kw-1.jpeg",
     images: [
-      "/solar-installation-ukuwela-25kw-1.jpg",
+      "/solar-installation-ukuwela-25kw-1.jpeg",
       "/solar-installation-ukuwela-25kw-2.jpeg",
-      // "/solar-installation-ukuwela-25kw-3.jpg",
+      "/solar-installation-ukuwela-25kw-3.jpeg",
     ],
     title: "",
     location: "Ukuwela",
     category: "residential",
     description:
-      "25kW on-grid solar system for a residence, reducing electricity costs while benefiting from the Net Accounting scheme.",
+      "25kW on-grid solar system for a residence, reducing electricity costs while benefiting from the Net Plus Plus scheme.",
     longDescription:
-      "This residential property required a high-capacity solar solution to manage its daily energy consumption efficiently. The 25kW on-grid system is designed to maximize solar generation during daytime hours, significantly reducing reliance on the national grid. Under the Net Accounting scheme, excess energy generated is exported to the grid and credited, providing financial returns over time. The system ensures stable performance, helping the homeowner reduce long-term electricity expenses while adopting a more sustainable energy solution.",
+      "This residential property required a high-capacity solar solution to manage its daily energy consumption efficiently. The 25kW on-grid system is designed to maximize solar generation during daytime hours, significantly reducing reliance on the national grid. Under the Net Plus Plus scheme, excess energy generated is exported to the grid and credited, providing financial returns over time. The system ensures stable performance, helping the homeowner reduce long-term electricity expenses while adopting a more sustainable energy solution.",
     testimonial: {
       name: "J. L. R. Mahindasiri",
-      text: "Smart Solar installed a reliable system for our home that has significantly reduced our electricity bills. The Net Accounting scheme gives us great value by utilizing excess energy efficiently. Highly satisfied with the performance.",
+      text: "Smart Solar installed a reliable system for our home that has significantly reduced our electricity bills. The Net Plus Plus scheme gives us great value by utilizing excess energy efficiently. Highly satisfied with the performance.",
       rating: 5,
       designation: "Electrical Engineer, CEB",
     },
@@ -144,12 +144,12 @@ export const allProjects: Project[] = [
     location: "Hadeniya",
     category: "residential",
     description:
-      "15kW on-grid solar system for a residence, reducing electricity costs while benefiting from the Net Accounting scheme.",
+      "15kW on-grid solar system for a residence, reducing electricity costs while benefiting from the Net Plus Plus scheme.",
     longDescription:
-      "This residential property required an efficient and cost-effective solar solution to manage daily electricity usage. The 15kW on-grid system is designed to maximize energy generation during daytime hours, significantly reducing dependence on the national grid. Under the Net Accounting scheme, excess energy generated is exported to the grid and credited, providing long-term financial benefits. The system ensures reliable performance, helping the homeowner lower electricity expenses while embracing a more sustainable energy solution.",
+      "This residential property required an efficient and cost-effective solar solution to manage daily electricity usage. The 15kW on-grid system is designed to maximize energy generation during daytime hours, significantly reducing dependence on the national grid. Under the Net Plus Plus scheme, excess energy generated is exported to the grid and credited, providing long-term financial benefits. The system ensures reliable performance, helping the homeowner lower electricity expenses while embracing a more sustainable energy solution.",
     testimonial: {
       name: "Inoka Bandara",
-      text: "Smart Solar installed a reliable system for our home that has greatly reduced our electricity bills. The Net Accounting scheme gives us excellent value by making use of excess energy. Very happy with the overall performance.",
+      text: "Smart Solar installed a reliable system for our home that has greatly reduced our electricity bills. The Net Plus Plus scheme gives us excellent value by making use of excess energy. Very happy with the overall performance.",
       rating: 5,
       designation: "Revenue Officer, CEB",
     },
