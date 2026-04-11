@@ -303,6 +303,7 @@
   position: relative;
   width: 100%;
   max-width: 600px;
+  max-height: 90vh;
   background: #ffffff;
   border: none;
   border-radius: 1.5rem;
@@ -310,7 +311,8 @@
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.5),
     0 0 40px rgba(115, 176, 66, 0.1);
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   text-transform: none; /* override global uppercase */
   animation: modalScaleUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -477,6 +479,7 @@
 @media (max-width: 768px) {
   .modalContainer {
     padding: 1.5rem;
+    max-height: 95vh;
   }
   
   .modalTitle {

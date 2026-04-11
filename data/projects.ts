@@ -26,7 +26,7 @@ export const allProjects: Project[] = [
     images: [
       "/solar-installation-panwila-25kw-1.jpg",
       "/solar-installation-panwila-25kw-2.jpg",
-      "/solar-installation-panwila-25kw-3.jpg",
+      "/solar-installation-panwila-25kw-3.png",
     ],
     title: "",
     location: "Panwila",
@@ -336,6 +336,7 @@ export const allProjects: Project[] = [
       "/solar-installation-jambugahapitiya-5kw-1.png",
       "/solar-installation-jambugahapitiya-5kw-2.png",
       "/solar-installation-jambugahapitiya-5kw-3.jpeg",
+      "/solar-installation-jambugahapitiya-5kw-4.png",
     ],
     title: "",
     location: "Jambugahpitiya",

@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './Services.module.css';
 
 const services = [
@@ -90,6 +91,11 @@ const services = [
 
 export const Services = () => {
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const openModal = (service: typeof services[0]) => {
     setSelectedService(service);
@@ -158,7 +164,7 @@ export const Services = () => {
       </div>
 
       {/* Modern Detail Modal */}
-      {selectedService && (
+      {mounted && selectedService && createPortal(
         <div className={styles.modalOverlay} onClick={closeModal}>
           <div className={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
             <button className={styles.modalCloseButton} onClick={closeModal} aria-label="Close modal">
@@ -184,7 +190,8 @@ export const Services = () => {
               <button className={styles.modalCta} onClick={closeModal}>Got it</button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
