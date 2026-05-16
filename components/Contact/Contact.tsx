@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import styles from './Contact.module.css';
+import { siteConfig } from '@/site.config';
+import { contactFormServices } from '@/data/navigation';
 
 interface FormData {
   firstName: string;
@@ -12,14 +14,7 @@ interface FormData {
   message: string;
 }
 
-interface FormErrors {
-  firstName?: string;
-  lastName?: string;
-  email?: string;
-  phone?: string;
-  service?: string;
-  message?: string;
-}
+type FormErrors = Partial<Record<keyof FormData, string>>;
 
 export const Contact = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -38,79 +33,53 @@ export const Contact = () => {
 
   const validate = (data: FormData): FormErrors => {
     const newErrors: FormErrors = {};
-
-    if (!data.firstName.trim()) {
-      newErrors.firstName = 'First name is required';
-    }
-
-    if (!data.lastName.trim()) {
-      newErrors.lastName = 'Last name is required';
-    }
-
-    if (!data.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-      newErrors.email = 'Please enter a valid email';
-    }
-
-    if (!data.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
-    } else if (!/^[\d\s+\-()]{7,15}$/.test(data.phone.trim())) {
-      newErrors.phone = 'Please enter a valid phone number';
-    }
-
-    if (!data.service) {
-      newErrors.service = 'Please select a service';
-    }
-
-    if (!data.message.trim()) {
-      newErrors.message = 'Message is required';
-    } else if (data.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters';
-    }
-
+    if (!data.firstName.trim()) newErrors.firstName = 'First name is required';
+    if (!data.lastName.trim()) newErrors.lastName = 'Last name is required';
+    if (!data.email.trim()) newErrors.email = 'Email is required';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) newErrors.email = 'Please enter a valid email';
+    if (!data.phone.trim()) newErrors.phone = 'Phone number is required';
+    else if (!/^[\d\s+\-()]{7,15}$/.test(data.phone.trim())) newErrors.phone = 'Please enter a valid phone number';
+    if (!data.service) newErrors.service = 'Please select a service';
+    if (!data.message.trim()) newErrors.message = 'Message is required';
+    else if (data.message.trim().length < 10) newErrors.message = 'Message must be at least 10 characters';
     return newErrors;
   };
 
   const handleChange = (field: keyof FormData, value: string) => {
     const updated = { ...formData, [field]: value };
     setFormData(updated);
-
-    // Clear error on change if the field was touched
     if (touched[field]) {
       const newErrors = validate(updated);
-      setErrors((prev) => ({
-        ...prev,
-        [field]: newErrors[field],
-      }));
+      setErrors((prev) => ({ ...prev, [field]: newErrors[field] }));
     }
   };
 
   const handleBlur = (field: keyof FormData) => {
     setTouched((prev) => ({ ...prev, [field]: true }));
     const newErrors = validate(formData);
-    setErrors((prev) => ({
-      ...prev,
-      [field]: newErrors[field],
-    }));
+    setErrors((prev) => ({ ...prev, [field]: newErrors[field] }));
   };
 
+  /**
+   * TEMPLATE NOTE — the form is a UI demo only.
+   * Wire this up to your real backend before going live:
+   *   - Resend / SendGrid / Mailgun
+   *   - FormSpree / Getform / Web3Forms
+   *   - Your own /api/contact endpoint
+   * Replace the setTimeout below with a real fetch().
+   */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (isSending) return;
 
-    // Mark all fields as touched
     const allTouched: Record<string, boolean> = {};
-    Object.keys(formData).forEach((key) => {
-      allTouched[key] = true;
-    });
+    Object.keys(formData).forEach((key) => { allTouched[key] = true; });
     setTouched(allTouched);
 
     const newErrors = validate(formData);
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      // Simulate sending
       setIsSending(true);
       setTimeout(() => {
         setIsSending(false);
@@ -118,22 +87,16 @@ export const Contact = () => {
         setFormData({ firstName: '', lastName: '', email: '', phone: '', service: '', message: '' });
         setTouched({});
         setErrors({});
-
-        // Auto-hide success after 5 seconds
         setTimeout(() => setIsSuccess(false), 5000);
       }, 1500);
     }
   };
 
-  const getInputClass = (field: keyof FormData) => {
-    if (errors[field] && touched[field]) return `${styles.formInput} ${styles.formInputError}`;
-    return styles.formInput;
-  };
+  const getInputClass = (field: keyof FormData) =>
+    errors[field] && touched[field] ? `${styles.formInput} ${styles.formInputError}` : styles.formInput;
 
-  const getTextareaClass = () => {
-    if (errors.message && touched.message) return `${styles.formTextarea} ${styles.formTextareaError}`;
-    return styles.formTextarea;
-  };
+  const getTextareaClass = () =>
+    errors.message && touched.message ? `${styles.formTextarea} ${styles.formTextareaError}` : styles.formTextarea;
 
   return (
     <section id="contact" className={styles.contact}>
@@ -143,7 +106,6 @@ export const Contact = () => {
 
       <div className={styles.container}>
         <div className={styles.layout}>
-          {/* ── Left: Contact Info ── */}
           <div className={styles.infoColumn}>
             <div className={styles.header}>
               <span className={styles.subtitle}>GET IN TOUCH</span>
@@ -156,7 +118,6 @@ export const Contact = () => {
               </p>
             </div>
 
-
             <div className={styles.infoCard} style={{ animationDelay: '0.2s' }}>
               <div className={styles.infoCardIcon}>
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -166,8 +127,8 @@ export const Contact = () => {
               <div className={styles.infoCardContent}>
                 <span className={styles.infoCardTitle}>Call Us</span>
                 <span className={styles.infoCardText}>
-                  <a href="tel:+94768283962" style={{ color: 'inherit' }}>076 828 3962</a><br />
-                  Mon – Fri, 8am – 6pm
+                  <a href={siteConfig.contact.phone.href}>{siteConfig.contact.phone.display}</a><br />
+                  {siteConfig.contact.hours.shortWeekdays}
                 </span>
               </div>
             </div>
@@ -182,8 +143,8 @@ export const Contact = () => {
               <div className={styles.infoCardContent}>
                 <span className={styles.infoCardTitle}>Email Us</span>
                 <span className={styles.infoCardText}>
-                  <a href="mailto:info@smartsolar.lk" style={{ color: 'inherit' }}>info@smartsolar.lk</a><br />
-                  <a href="mailto:support@smartsolar.lk" style={{ color: 'inherit' }}>support@smartsolar.lk</a>
+                  <a href={`mailto:${siteConfig.contact.emails.primary}`}>{siteConfig.contact.emails.primary}</a><br />
+                  <a href={`mailto:${siteConfig.contact.emails.support}`}>{siteConfig.contact.emails.support}</a>
                 </span>
               </div>
             </div>
@@ -198,16 +159,13 @@ export const Contact = () => {
               <div className={styles.infoCardContent}>
                 <span className={styles.infoCardTitle}>Business Hours</span>
                 <span className={styles.infoCardText}>
-                  Monday – Friday: 8:00 AM – 6:00 PM<br />
-                  Saturday: 9:00 AM – 2:00 PM
+                  {siteConfig.contact.hours.weekdays}<br />
+                  {siteConfig.contact.hours.saturday}
                 </span>
               </div>
             </div>
-
-
           </div>
 
-          {/* ── Right: Contact Form ── */}
           <div className={styles.formCard}>
             <form onSubmit={handleSubmit} noValidate>
               <div className={styles.formRow}>
@@ -261,7 +219,7 @@ export const Contact = () => {
                   <input
                     type="tel"
                     className={getInputClass('phone')}
-                    placeholder="+94 77 123 4567"
+                    placeholder="+1 555 123 4567"
                     value={formData.phone}
                     onChange={(e) => handleChange('phone', e.target.value)}
                     onBlur={() => handleBlur('phone')}
@@ -281,12 +239,9 @@ export const Contact = () => {
                   onBlur={() => handleBlur('service')}
                 >
                   <option value="" disabled>Select a service...</option>
-                  <option value="residential">Residential Solar</option>
-                  <option value="commercial">Commercial Solar</option>
-                  <option value="maintenance">Solar Maintenance</option>
-                  <option value="storage">Energy Storage</option>
-                  <option value="ev">EV Charging</option>
-                  <option value="consultation">Free Consultation</option>
+                  {contactFormServices.map((s) => (
+                    <option key={s.value} value={s.value}>{s.label}</option>
+                  ))}
                 </select>
                 {errors.service && touched.service && (
                   <span className={styles.errorText}>{errors.service}</span>

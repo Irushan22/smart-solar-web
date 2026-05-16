@@ -2,355 +2,341 @@ export type Category = "all" | "residential" | "commercial";
 
 export interface Project {
   id: string;
-  image: string; // Featured image
-  images: string[]; // Gallery images
+  image: string;
+  images: string[];
   title: string;
   location: string;
   category: Category;
   description: string;
-  longDescription?: string; // Additional details for the single page
+  longDescription?: string;
   testimonial?: {
     name: string;
     text: string;
     designation: string;
-    rating: number; // out of 5
+    rating: number;
   };
   stats: { value: string; label: string }[];
 }
 
+const img = (id: string, w = 1600) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
+
 export const allProjects: Project[] = [
-  // Existing 6 projects
   {
     id: "p1",
-    image: "/solar-installation-panwila-25kw-1.jpg",
+    image: img("photo-1509391366360-2e959784a276"),
     images: [
-      "/solar-installation-panwila-25kw-1.jpg",
-      "/solar-installation-panwila-25kw-2.jpg",
-      "/solar-installation-panwila-25kw-3.png",
+      img("photo-1509391366360-2e959784a276"),
+      img("photo-1466611653911-95081537e5b7"),
+      img("photo-1497440001374-f26997328c1b"),
     ],
-    title: "",
-    location: "Panwila",
+    title: "25kW Commercial Rooftop System",
+    location: "Oakridge",
     category: "commercial",
     description:
-      "25kW on-grid solar system designed for a combined home and retail property, reducing electricity costs while generating extra income through the Net Plus Plus scheme.",
+      "25kW on-grid solar system designed for a combined home and retail property, reducing electricity costs while generating extra income through net export schemes.",
     longDescription:
-      "This retail property required a smart and efficient solar solution to handle high daytime electricity demand while maintaining uninterrupted business operations. The 25kW on-grid system is strategically designed to maximize solar generation during peak business hours, significantly reducing electricity costs. With integration to the Net Plus Plus scheme, excess energy is exported back to the grid, improving overall return on investment. The system ensures reliable performance, helping the business operate more sustainably while lowering long-term operational expenses.",
+      "This retail property required a smart and efficient solar solution to handle high daytime electricity demand while maintaining uninterrupted business operations. The 25kW on-grid system is strategically designed to maximize solar generation during peak business hours, significantly reducing electricity costs. Excess energy is exported back to the grid, improving overall return on investment. The system ensures reliable performance, helping the business operate more sustainably while lowering long-term operational expenses.",
     testimonial: {
-      name: "Chaminda Kulasekara",
-      text: "Smart Solar delivered a perfect solution for both my home and retail shop. Our electricity costs have reduced significantly, and we now generate extra income by exporting excess power to the grid. It’s a smart investment that supports both our daily living and business operations.",
+      name: "Alex Morgan",
+      text: "The team delivered a perfect solution for both our home and retail shop. Our electricity costs have reduced significantly, and we now generate extra income by exporting excess power to the grid. A smart investment.",
       rating: 5,
-      designation: "Owner, Sekara Furniture",
+      designation: "Owner, Sample Retail Co.",
     },
     stats: [
       { value: "25kW", label: "System Size" },
-      // { value: "On-Grid", label: "System Type" },
-      { value: "Net Plus Plus", label: "Scheme" },
+      { value: "Net Export", label: "Scheme" },
     ],
   },
   {
     id: "p2",
-    image: "/solar-installation-katugasthota-15kw-1.jpg",
+    image: img("photo-1466611653911-95081537e5b7"),
     images: [
-      "/solar-installation-katugasthota-15kw-1.jpg",
-      // "/solar-installation-katugasthota-15kw-2.jpg",
-      "/solar-installation-katugasthota-15kw-3.jpg",
+      img("photo-1466611653911-95081537e5b7"),
+      img("photo-1508514177221-188b1cf16e9d"),
     ],
-    title: "",
-    location: "Katugasthota",
+    title: "15kW Residential System",
+    location: "Lakeside",
     category: "residential",
     description:
-      "15kW on-grid solar system for a modern home, reducing electricity bills while generating extra income through the Net Accounting scheme.",
+      "15kW on-grid solar system for a modern home, reducing electricity bills while generating extra income through net accounting.",
     longDescription:
-      "This residence required a reliable and efficient solar solution to manage high household electricity usage. The 15kW on-grid system is designed to maximize daytime energy generation, significantly reducing dependence on the national grid. During periods of low consumption, excess electricity is exported back to the grid under the Net Accounting scheme, creating an additional source of income. The system ensures consistent performance, helping the homeowner lower long-term energy costs while embracing sustainable living.",
+      "This residence required a reliable and efficient solar solution to manage high household electricity usage. The 15kW on-grid system is designed to maximize daytime energy generation, significantly reducing dependence on the grid. During periods of low consumption, excess electricity is exported back to the grid under net accounting, creating an additional source of income.",
     testimonial: {
-      name: "Egodawita",
-      text: "Smart Solar delivered a perfect solution for our home. Our electricity bills have dropped significantly, and earning extra income from excess energy is a great benefit. The system works flawlessly.",
+      name: "Jamie Carter",
+      text: "Smart, clean install. Our electricity bills have dropped significantly, and earning extra income from excess energy is a great benefit. The system works flawlessly.",
       rating: 5,
-      designation: "Electrical Superintendent, CEB",
+      designation: "Homeowner",
     },
     stats: [
-      { value: "15KW", label: "System Size" },
+      { value: "15kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
-      // { value: "Net Accounting", label: "Scheme" },
-      // { value: "€1.8M", label: "Savings / 25yr" },
     ],
   },
   {
     id: "p4",
-    image: "/solar-installation-ukuwela-25kw-1.jpeg",
+    image: img("photo-1497440001374-f26997328c1b"),
     images: [
-      "/solar-installation-ukuwela-25kw-1.jpeg",
-      "/solar-installation-ukuwela-25kw-2.jpeg",
-      "/solar-installation-ukuwela-25kw-3.jpeg",
+      img("photo-1497440001374-f26997328c1b"),
+      img("photo-1545209463-e2825498edbf"),
+      img("photo-1497436072909-60f360e1d4b1"),
     ],
-    title: "",
-    location: "Ukuwela",
+    title: "25kW Premium Home System",
+    location: "Greenfield",
     category: "residential",
     description:
-      "25kW on-grid solar system for a residence, reducing electricity costs while benefiting from the Net Plus Plus scheme.",
+      "25kW on-grid solar system for a residence, reducing electricity costs while benefiting from net export pricing.",
     longDescription:
-      "This residential property required a high-capacity solar solution to manage its daily energy consumption efficiently. The 25kW on-grid system is designed to maximize solar generation during daytime hours, significantly reducing reliance on the national grid. Under the Net Plus Plus scheme, excess energy generated is exported to the grid and credited, providing financial returns over time. The system ensures stable performance, helping the homeowner reduce long-term electricity expenses while adopting a more sustainable energy solution.",
+      "This residential property required a high-capacity solar solution to manage its daily energy consumption efficiently. The 25kW on-grid system is designed to maximize solar generation during daytime hours, significantly reducing reliance on the grid. Excess energy generated is exported and credited, providing financial returns over time.",
     testimonial: {
-      name: "J. L. R. Mahindasiri",
-      text: "Smart Solar installed a reliable system for our home that has significantly reduced our electricity bills. The Net Plus Plus scheme gives us great value by utilizing excess energy efficiently. Highly satisfied with the performance.",
+      name: "Riley Bennett",
+      text: "Reliable system installation that has significantly reduced our electricity bills. The export scheme gives us great value by utilizing excess energy efficiently. Highly satisfied.",
       rating: 5,
-      designation: "Electrical Engineer, CEB",
+      designation: "Engineering Manager",
     },
     stats: [
       { value: "25kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
-      { value: "Net Plus Plus", label: "Scheme" },
+      { value: "Net Export", label: "Scheme" },
     ],
   },
   {
     id: "p5",
-    image: "/solar-installation-matale-20kw-1.jpg",
+    image: img("photo-1545209463-e2825498edbf"),
     images: [
-      "/solar-installation-matale-20kw-2.jpg",
-      "/solar-installation-matale-20kw-3.jpg",
-      "/solar-installation-matale-20kw-1.jpg",
-      "/solar-installation-matale-20kw-4.jpg",
+      img("photo-1545209463-e2825498edbf"),
+      img("photo-1497440001374-f26997328c1b"),
+      img("photo-1509391366360-2e959784a276"),
+      img("photo-1466611653911-95081537e5b7"),
     ],
-    title: "",
-    location: "Matale",
+    title: "20kW Slab Rooftop Installation",
+    location: "Maple Heights",
     category: "residential",
     description:
       "20kW on-grid solar system installed on a slab rooftop for a residence, reducing electricity bills and maximizing energy efficiency.",
     longDescription:
-      "This residential property required an efficient solar solution to utilize its slab rooftop space effectively. The 20kW on-grid system was carefully designed to ensure optimal panel placement for maximum sunlight exposure while maintaining structural safety and aesthetics. The system significantly reduces household electricity costs by generating power during daytime usage. Excess energy is exported to the grid under the Net Plus Plus scheme, providing additional financial benefits. This installation ensures reliable performance while supporting sustainable and cost-effective living.",
+      "This residential property required an efficient solar solution to utilize its slab rooftop space effectively. The 20kW on-grid system was carefully designed to ensure optimal panel placement for maximum sunlight exposure while maintaining structural safety and aesthetics. The system significantly reduces household electricity costs by generating power during daytime usage.",
     testimonial: {
-      name: "Saman Bandara",
-      text: "Smart Solar did a great job with our home installation. They made the best use of our rooftop space, and our electricity bills have reduced significantly. The system works perfectly every day.",
+      name: "Sam Patel",
+      text: "Great job with our home installation. They made the best use of our rooftop space, and our electricity bills have reduced significantly. The system works perfectly every day.",
       rating: 5,
-      designation: "Captain",
+      designation: "Project Lead",
     },
     stats: [
       { value: "20kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
-      // { value: "Net Plus Plus", label: "Scheme" },
-      // { value: "Slab Roof", label: "Installation Type" },
     ],
   },
   {
     id: "p6",
-    image: "/solar-installation-hadeniya-15kw-1.jpg",
+    image: img("photo-1508514177221-188b1cf16e9d"),
     images: [
-      "/solar-installation-hadeniya-15kw-2.jpg",
-      "/solar-installation-hadeniya-15kw-3.jpg",
-      "/solar-installation-hadeniya-15kw-1.jpg",
-      "/solar-installation-hadeniya-15kw-4.jpg",
+      img("photo-1508514177221-188b1cf16e9d"),
+      img("photo-1497436072909-60f360e1d4b1"),
+      img("photo-1466611653911-95081537e5b7"),
     ],
-    title: "",
-    location: "Hadeniya",
+    title: "15kW Eco-Home System",
+    location: "Brookside",
     category: "residential",
     description:
-      "15kW on-grid solar system for a residence, reducing electricity costs while benefiting from the Net Plus Plus scheme.",
+      "15kW on-grid solar system for a residence, reducing electricity costs while benefiting from the net export scheme.",
     longDescription:
-      "This residential property required an efficient and cost-effective solar solution to manage daily electricity usage. The 15kW on-grid system is designed to maximize energy generation during daytime hours, significantly reducing dependence on the national grid. Under the Net Plus Plus scheme, excess energy generated is exported to the grid and credited, providing long-term financial benefits. The system ensures reliable performance, helping the homeowner lower electricity expenses while embracing a more sustainable energy solution.",
+      "This residential property required an efficient and cost-effective solar solution to manage daily electricity usage. The 15kW on-grid system is designed to maximize energy generation during daytime hours, significantly reducing dependence on the grid.",
     testimonial: {
-      name: "Inoka Bandara",
-      text: "Smart Solar installed a reliable system for our home that has greatly reduced our electricity bills. The Net Plus Plus scheme gives us excellent value by making use of excess energy. Very happy with the overall performance.",
+      name: "Jordan Reeves",
+      text: "Reliable system installation that has greatly reduced our electricity bills. The export scheme gives us excellent value by making use of excess energy.",
       rating: 5,
-      designation: "Revenue Officer, CEB",
+      designation: "Operations Officer",
     },
     stats: [
       { value: "15kW", label: "System Size" },
-      // { value: "On-Grid", label: "System Type" },
-      { value: "Net Plus Plus", label: "Scheme" },
+      { value: "Net Export", label: "Scheme" },
     ],
   },
-  // 9 New Additional Projects
   {
     id: "p7",
-    image: "/solar-installation-mahawatte-3kw-1.jpg",
+    image: img("photo-1497436072909-60f360e1d4b1"),
     images: [
-      "/solar-installation-mahawatte-3kw-1.jpg",
-      "/solar-installation-mahawatte-3kw-2.jpg",
-      "/solar-installation-mahawatte-3kw-3.jpg",
+      img("photo-1497436072909-60f360e1d4b1"),
+      img("photo-1509391366360-2e959784a276"),
+      img("photo-1497440001374-f26997328c1b"),
     ],
-    title: "",
-    location: "Mahawatte",
+    title: "3kW Starter Home System",
+    location: "Riverbend",
     category: "residential",
     description:
       "3kW on-grid solar system for a home, reducing electricity bills and supporting daily energy needs efficiently.",
     longDescription:
-      "This residential property required a compact and cost-effective solar solution to manage everyday electricity usage. The 3kW on-grid system is designed to generate power during daytime hours, helping to reduce reliance on the national grid and lower monthly electricity bills. The system integrates seamlessly with the grid, ensuring stable and reliable performance while making efficient use of available rooftop space. It provides a practical step towards sustainable and affordable energy for the household.",
+      "This residential property required a compact and cost-effective solar solution to manage everyday electricity usage. The 3kW on-grid system is designed to generate power during daytime hours, helping to reduce reliance on the grid and lower monthly electricity bills.",
     testimonial: {
-      name: "H. L. R. Weerawardana",
-      text: "Smart Solar provided a simple and efficient solution for our home. We've seen a clear reduction in our electricity bills, and the system works smoothly every day.",
+      name: "Casey Lin",
+      text: "Simple and efficient solution for our home. We've seen a clear reduction in our electricity bills, and the system works smoothly every day.",
       rating: 5,
-      designation: "Chief Clerk",
+      designation: "Homeowner",
     },
     stats: [
       { value: "3kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
-      // { value: "Net Accounting", label: "Scheme" },
-      // { value: "Residential", label: "Project Type" },
     ],
   },
   {
     id: "p8",
-    image: "/solar-installation-samandhwa-40kw-1.jpg",
+    image: img("photo-1532601224476-15c79f2f7a51"),
     images: [
-      "/solar-installation-samandhwa-40kw-1.jpg",
-      "/solar-installation-samandhwa-40kw-2.jpg",
-      "/solar-installation-samandhwa-40kw-3.jpg",
-      "/solar-installation-samandhwa-40kw-4.jpg",
+      img("photo-1532601224476-15c79f2f7a51"),
+      img("photo-1466611653911-95081537e5b7"),
+      img("photo-1509391366360-2e959784a276"),
+      img("photo-1545209463-e2825498edbf"),
     ],
-    title: "",
-    location: "Samandhwa",
+    title: "40kW Investment-Grade Array",
+    location: "Harborview",
     category: "commercial",
     description:
-      "40kW on-grid solar system installed on a custom roof structure, designed purely for energy generation and income through the Net Plus Plus scheme.",
+      "40kW on-grid solar system installed on a custom roof structure, designed purely for energy generation and income through net export.",
     longDescription:
-      "This project was developed as a dedicated solar investment with no on-site electricity consumption. The 40kW on-grid system is installed on a purpose-built roof structure to maximize solar exposure and energy generation. All electricity produced is exported directly to the grid under the Net Plus Plus scheme, generating a steady income stream for the owner. The elevated structure ensures optimal panel orientation and cooling, improving efficiency and long-term performance. This setup represents a smart, passive income solution through renewable energy.",
+      "This project was developed as a dedicated solar investment with no on-site electricity consumption. The 40kW on-grid system is installed on a purpose-built roof structure to maximize solar exposure and energy generation. All electricity produced is exported directly to the grid, generating a steady income stream for the owner.",
     testimonial: {
-      name: "U. P. Arunashantha",
-      text: "This was purely an investment for us, and Smart Solar delivered exactly what we needed. The system generates consistent income every month, and the installation quality is excellent.",
+      name: "Taylor Kim",
+      text: "Purely an investment for us, and the team delivered exactly what we needed. The system generates consistent income every month, and the installation quality is excellent.",
       rating: 5,
-      designation: "Accountant",
+      designation: "Finance Director",
     },
     stats: [
       { value: "40kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
-      { value: "Net Plus Plus", label: "Scheme" },
+      { value: "Net Export", label: "Scheme" },
     ],
   },
   {
     id: "p9",
-    image: "/solar-installation-meegammana-25kw-1.jpg",
+    image: img("photo-1576773689115-5cd2b0223523"),
     images: [
-      "/solar-installation-meegammana-25kw-2.jpg",
-      "/solar-installation-meegammana-25kw-1.jpg",
-      "/solar-installation-meegammana-25kw-3.jpg",
-      "/solar-installation-meegammana-25kw-4.jpg",
+      img("photo-1576773689115-5cd2b0223523"),
+      img("photo-1497436072909-60f360e1d4b1"),
+      img("photo-1497440001374-f26997328c1b"),
+      img("photo-1466611653911-95081537e5b7"),
     ],
-    title: "",
-    location: "Meegammana",
+    title: "25kW Family Estate",
+    location: "Hillcrest",
     category: "residential",
     description:
       "25kW on-grid solar system for a residence, reducing electricity costs while generating additional value through solar energy.",
     longDescription:
-      "This residential property required a high-capacity solar solution to efficiently manage its daily electricity consumption. The 25kW on-grid system is designed to maximize energy generation during daytime hours, significantly reducing reliance on the national grid. Excess energy produced is exported under the Net Plus Plus scheme, creating an additional income stream. The system delivers reliable and consistent performance, helping the homeowner achieve long-term cost savings while embracing sustainable energy.",
+      "This residential property required a high-capacity solar solution to efficiently manage its daily electricity consumption. The 25kW on-grid system is designed to maximize energy generation during daytime hours, significantly reducing reliance on the grid.",
     testimonial: {
-      name: "G. G. P. A. Wikramsingha",
-      text: "Smart Solar installed a powerful system for our home that has greatly reduced our electricity bills. We also benefit from exporting excess energy, making it a valuable long-term investment.",
+      name: "Morgan Hayes",
+      text: "Powerful system installation that has greatly reduced our electricity bills. We also benefit from exporting excess energy, making it a valuable long-term investment.",
       rating: 5,
-      designation: "Police Officer",
+      designation: "Homeowner",
     },
     stats: [
       { value: "25kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
-      { value: "Net Plus Plus", label: "Scheme" },
+      { value: "Net Export", label: "Scheme" },
     ],
   },
   {
     id: "p10",
-    image: "/solar-installation-pilimathalawa-5kw-1.jpeg",
+    image: img("photo-1581090464777-f3220bbe1b8b"),
     images: [
-      "/solar-installation-pilimathalawa-5kw-1.jpeg",
-      "/solar-installation-pilimathalawa-5kw-2.jpeg",
-      "/solar-installation-pilimathalawa-5kw-3.jpeg",
-      // "/proj1_1.jpeg",
+      img("photo-1581090464777-f3220bbe1b8b"),
+      img("photo-1509391366360-2e959784a276"),
+      img("photo-1508514177221-188b1cf16e9d"),
     ],
-    title: "",
-    location: "Pilimathalawa",
+    title: "5kW Suburban Home System",
+    location: "Pinewood",
     category: "residential",
     description:
       "5kW on-grid solar system for a residence, reducing electricity costs while generating additional value through solar energy.",
     longDescription:
-      "This residential property required an efficient solar solution to manage daily electricity usage. The 5kW on-grid system is optimized for maximum daytime energy generation, significantly reducing dependence on the national grid. Surplus energy is exported under the Net Plus Plus scheme, providing an additional income stream. The system ensures stable performance and long-term savings while supporting a greener lifestyle.",
+      "This residential property required an efficient solar solution to manage daily electricity usage. The 5kW on-grid system is optimized for maximum daytime energy generation, significantly reducing dependence on the grid.",
     testimonial: {
-      name: "H. M. L. K. Herath",
-      text: "After installing the solar system, our electricity bill has dropped significantly. The system runs smoothly, and exporting extra energy is an added benefit. Very satisfied with the service provided.",
+      name: "Avery Brooks",
+      text: "After installing the solar system, our electricity bill has dropped significantly. The system runs smoothly, and exporting extra energy is an added benefit.",
       rating: 5,
-      designation: "Coordinator Officer, CEB",
+      designation: "Operations Coordinator",
     },
     stats: [
       { value: "5kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
-      { value: "Net Plus Plus", label: "Scheme" },
+      { value: "Net Export", label: "Scheme" },
     ],
   },
   {
     id: "p11",
-    image: "/solar-installation-naththaranpotha-20kw-1.jpeg",
+    image: img("photo-1473341304170-971dccb5ac1e"),
     images: [
-      "/solar-installation-naththaranpotha-20kw-1.jpeg",
-      "/solar-installation-naththaranpotha-20kw-2.jpeg",
-      "/solar-installation-naththaranpotha-20kw-3.jpeg",
-      "/solar-installation-naththaranpotha-20kw-4.jpeg",
+      img("photo-1473341304170-971dccb5ac1e"),
+      img("photo-1532601224476-15c79f2f7a51"),
+      img("photo-1545209463-e2825498edbf"),
+      img("photo-1466611653911-95081537e5b7"),
     ],
-    title: "",
-    location: "Naththaranpotha",
+    title: "20kW Commercial Facility",
+    location: "Westgate",
     category: "commercial",
     description:
       "20kW on-grid solar system for a commercial facility, reducing operational electricity costs and improving energy efficiency.",
     longDescription:
-      "This commercial installation required a high-capacity solar solution to handle significant daily energy consumption. The 20kW on-grid system is designed to optimize power generation during peak hours, reducing electricity expenses for the business. Excess energy is managed under the Net Accounting scheme, ensuring efficient utilization. The system delivers reliable performance, making it a cost-effective and sustainable investment.",
+      "This commercial installation required a high-capacity solar solution to handle significant daily energy consumption. The 20kW on-grid system is designed to optimize power generation during peak hours, reducing electricity expenses for the business.",
     testimonial: {
-      name: "A. G. Pradeep Prasanga",
-      text: "This solar system has helped us reduce a large portion of our electricity expenses. It’s a great investment for our business, and the installation process was smooth and professional.",
+      name: "Robin Sage",
+      text: "This solar system has helped us reduce a large portion of our electricity expenses. A great investment for our business, and the installation process was smooth and professional.",
       rating: 5,
-      designation: "Distributor, Bairaha Chicken",
+      designation: "Operations Manager",
     },
     stats: [
       { value: "20kW", label: "System Size" },
-      // { value: "On-Grid", label: "System Type" },
       { value: "Net Accounting", label: "Scheme" },
     ],
   },
   {
     id: "p12",
-    image: "/solar-installation-katugasthota-5kw-1.png",
+    image: img("photo-1573164574572-cb89e39749b4"),
     images: [
-      "/solar-installation-katugasthota-5kw-1.png",
-      "/solar-installation-katugasthota-5kw-2.png",
-      "/solar-installation-katugasthota-5kw-3.jpeg",
-      "/solar-installation-katugasthota-5kw-4.jpeg",
+      img("photo-1573164574572-cb89e39749b4"),
+      img("photo-1509391366360-2e959784a276"),
+      img("photo-1497440001374-f26997328c1b"),
+      img("photo-1497436072909-60f360e1d4b1"),
     ],
-    title: "",
-    location: "Katugasthota",
+    title: "5kW Urban Home System",
+    location: "Cedarpark",
     category: "residential",
     description:
       "5kW on-grid solar system for a residence, reducing electricity costs while generating additional value through solar energy.",
     longDescription:
-      "This home required a reliable solar solution to reduce rising electricity costs. The 5kW on-grid system efficiently generates power during the day, minimizing reliance on the grid. It provides consistent energy output and long-term savings, making it a practical and eco-friendly choice for the household.",
-
+      "This home required a reliable solar solution to reduce rising electricity costs. The 5kW on-grid system efficiently generates power during the day, minimizing reliance on the grid.",
     testimonial: {
-      name: "J. A. Ariyawansa",
-      text: "The installation was done very professionally, and we are already seeing a noticeable reduction in our electricity bills. The system works perfectly and gives us peace of mind.",
+      name: "Drew Nakamura",
+      text: "Installation was very professional, and we are already seeing a noticeable reduction in our electricity bills. The system works perfectly and gives us peace of mind.",
       rating: 5,
-      designation: "General Nurse, Kandy General Hospital",
+      designation: "Healthcare Professional",
     },
     stats: [
       { value: "5kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
-      // { value: "Net Accounting", label: "Scheme" },
     ],
   },
   {
     id: "p13",
-    image: "/solar-installation-jambugahapitiya-5kw-1.png",
+    image: img("photo-1542621334-a254cf47733d"),
     images: [
-      "/solar-installation-jambugahapitiya-5kw-1.png",
-      "/solar-installation-jambugahapitiya-5kw-2.png",
-      "/solar-installation-jambugahapitiya-5kw-3.jpeg",
-      "/solar-installation-jambugahapitiya-5kw-4.png",
+      img("photo-1542621334-a254cf47733d"),
+      img("photo-1497436072909-60f360e1d4b1"),
+      img("photo-1473341304170-971dccb5ac1e"),
+      img("photo-1466611653911-95081537e5b7"),
     ],
-    title: "",
-    location: "Jambugahpitiya",
+    title: "5kW Family Home System",
+    location: "Foxglove",
     category: "residential",
     description:
       "5kW on-grid solar system for a residence, reducing electricity costs while generating additional value through solar energy.",
     longDescription:
-      "This project focused on delivering a cost-effective solar solution for a residential property. The 5kW on-grid system ensures efficient energy production during daylight hours, reducing electricity costs and improving energy independence. It offers stable performance and supports sustainable living.",
-
+      "This project focused on delivering a cost-effective solar solution for a residential property. The 5kW on-grid system ensures efficient energy production during daylight hours, reducing electricity costs and improving energy independence.",
     testimonial: {
-      name: "H. M. R. I. B. Madagoda",
-      text: "We are very happy with the solar system installation. It has reduced our electricity costs, and the entire process was handled efficiently by the team.",
+      name: "Quinn Adler",
+      text: "Very happy with the solar system installation. It has reduced our electricity costs, and the entire process was handled efficiently by the team.",
       rating: 5,
-      designation: "Farm Manager, Agriculture Department",
+      designation: "Project Coordinator",
     },
     stats: [
       { value: "5kW", label: "System Size" },
@@ -360,30 +346,29 @@ export const allProjects: Project[] = [
   },
   {
     id: "p14",
-    image: "/solar-installation-gunnapana-5kw-3.png",
+    image: img("photo-1532601224476-15c79f2f7a51", 1200),
     images: [
-      "/solar-installation-gunnapana-5kw-3.png",
-      "/solar-installation-gunnapana-5kw-2.jpeg",
-      "/solar-installation-gunnapana-5kw-1.jpeg",
+      img("photo-1532601224476-15c79f2f7a51"),
+      img("photo-1508514177221-188b1cf16e9d"),
+      img("photo-1509391366360-2e959784a276"),
     ],
-    title: "",
-    location: "Gunnapana",
+    title: "5kW Cottage System",
+    location: "Stonemill",
     category: "residential",
     description:
       "A 5kW on-grid solar system installed for a residence, helping significantly reduce electricity bills while maximizing solar energy usage.",
     longDescription:
-      "This project was designed to provide an efficient and cost-effective solar solution for a residential property in Jambugahapitiya. The 5kW on-grid system generates clean energy during the day, allowing the homeowner to reduce reliance on the national grid and lower monthly electricity expenses. With stable performance and seamless integration, the system supports a more sustainable and energy-efficient lifestyle.",
+      "This project was designed to provide an efficient and cost-effective solar solution for a residential property. The 5kW on-grid system generates clean energy during the day, allowing the homeowner to reduce reliance on the grid and lower monthly electricity expenses.",
     testimonial: {
-      name: "B. M. V. Pushpakumari",
-      text: "We are very satisfied with the solar installation. Our electricity bills have reduced noticeably, and the entire process was smooth and professionally handled by the team.",
+      name: "Parker Whitfield",
+      text: "Very satisfied with the solar installation. Our electricity bills have reduced noticeably, and the entire process was smooth and professionally handled.",
       rating: 5,
-      designation: "Bank Manager",
+      designation: "Small Business Owner",
     },
-
     stats: [
       { value: "5kW", label: "System Size" },
       { value: "On-Grid", label: "System Type" },
       { value: "Net Accounting", label: "Scheme" },
     ],
-  }
+  },
 ];

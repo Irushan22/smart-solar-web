@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { siteConfig } from "@/site.config";
 
 export const dynamic = "force-static";
 
@@ -11,6 +12,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: "https://smartsolar.lk/sitemap.xml",
+    sitemap: `${siteConfig.site.url}/sitemap.xml`,
   };
 }

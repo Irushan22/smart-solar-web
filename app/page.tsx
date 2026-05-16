@@ -3,7 +3,6 @@ import { Navbar } from '@/components/Navbar/Navbar';
 import { Hero } from '@/components/Hero/Hero';
 import { About } from '@/components/About/About';
 
-// Lazy-load below-the-fold components for faster initial page load
 const Services = dynamic(() => import('@/components/Services/Services').then(mod => ({ default: mod.Services })), {
   loading: () => <div style={{ minHeight: '100vh' }} />,
 });
@@ -32,7 +31,6 @@ export default function Home() {
       <Services />
       <Brands />
       <Portfolio />
-      {/* <Calculator /> */}
       <Testimonials />
       <Contact />
       <Footer />

@@ -3,9 +3,9 @@
 import { useState, useCallback, useRef } from 'react';
 import styles from './Testimonials.module.css';
 import { allProjects } from '@/data/projects';
+import { siteConfig } from '@/site.config';
 
-// Build testimonials from project data
-const colors = ['#73b042', '#152e52', '#4a9630', '#1E3E62'];
+const avatarColors = ['#73b042', '#152e52', '#4a9630', '#1E3E62'];
 
 const testimonials = allProjects
   .filter((p) => p.testimonial)
@@ -19,7 +19,7 @@ const testimonials = allProjects
       .join('')
       .slice(0, 2)
       .toUpperCase(),
-    color: colors[i % colors.length],
+    color: avatarColors[i % avatarColors.length],
     rating: p.testimonial!.rating,
   }));
 
@@ -32,7 +32,6 @@ const StarIcon = () => (
   </svg>
 );
 
-// Helper to get testimonials for a given slide index (wraps around)
 const getSlideTestimonials = (slideIndex: number) => {
   const wrappedIndex = ((slideIndex % totalSlides) + totalSlides) % totalSlides;
   return testimonials.slice(
@@ -64,7 +63,6 @@ export const Testimonials = () => {
     setCurrentSlide(index);
   }, [isTransitioning]);
 
-  // After transition ends, silently reset position if out of real range
   const handleTransitionEnd = useCallback(() => {
     setIsTransitioning(false);
     setCurrentSlide((prev) => {
@@ -84,7 +82,6 @@ export const Testimonials = () => {
     });
   }, []);
 
-  // Render: clone of last slide + real slides + clone of first slide
   const renderSlides = [];
   for (let i = -1; i <= totalSlides; i++) {
     renderSlides.push(i);
@@ -108,9 +105,7 @@ export const Testimonials = () => {
           </p>
         </div>
 
-        {/* Carousel */}
         <div className={styles.carousel}>
-          {/* Nav Arrows */}
           <button
             className={`${styles.navArrow} ${styles.navArrowLeft}`}
             onClick={goPrev}
@@ -140,8 +135,8 @@ export const Testimonials = () => {
             >
               {renderSlides.map((slideIndex) => (
                 <div key={slideIndex} className={styles.slide}>
-                  {getSlideTestimonials(slideIndex).map((t, i) => (
-                    <div key={i} className={styles.card}>
+                  {getSlideTestimonials(slideIndex).map((t) => (
+                    <div key={`${slideIndex}-${t.name}`} className={styles.card}>
                       <div className={styles.cardAccent}></div>
 
                       <div className={styles.quoteIcon}>
@@ -180,7 +175,6 @@ export const Testimonials = () => {
             </div>
           </div>
 
-          {/* Dots */}
           <div className={styles.dots}>
             {Array.from({ length: totalSlides }).map((_, i) => (
               <button
@@ -195,19 +189,19 @@ export const Testimonials = () => {
 
         <div className={styles.statsBar}>
           <div className={styles.statItem}>
-            <div className={`${styles.statValue} ${styles.statValueGreen}`}>4.9</div>
+            <div className={`${styles.statValue} ${styles.statValueGreen}`}>{siteConfig.stats.averageRating}</div>
             <div className={styles.statLabel}>Average Rating</div>
           </div>
           <div className={styles.statItem}>
-            <div className={styles.statValue}>120+</div>
+            <div className={styles.statValue}>{siteConfig.stats.happyCustomers}</div>
             <div className={styles.statLabel}>Happy Customers</div>
           </div>
           <div className={styles.statItem}>
-            <div className={styles.statValue}>98%</div>
+            <div className={styles.statValue}>{siteConfig.stats.wouldRecommend}</div>
             <div className={styles.statLabel}>Would Recommend</div>
           </div>
           <div className={styles.statItem}>
-            <div className={`${styles.statValue} ${styles.statValueGreen}`}>8+</div>
+            <div className={`${styles.statValue} ${styles.statValueGreen}`}>{siteConfig.stats.yearsOfTrust}</div>
             <div className={styles.statLabel}>Years of Trust</div>
           </div>
         </div>

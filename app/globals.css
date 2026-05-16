@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #4a9630; /* New Dark Blue Button */
-  --primary-hover: #0b1a30; /* Darker blue for hover */
-  
-  --text-main: #000000; /* Black for primary headings/text */
-  --text-muted: #1E3E62; /* Blue for subtitles/secondary text */
-  --nav-bg: rgba(255, 255, 255, 0.95); /* white with opacity */
-  --glass-border: rgba(11, 25, 44, 0.1); /* Navy tinted subtle border */
-  
+  --primary: #4a9630;
+  --primary-hover: #0b1a30;
+
+  --text-main: #000000;
+  --text-muted: #1E3E62;
+  --nav-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(11, 25, 44, 0.1);
+
   --background: #ffffff;
   --foreground: var(--text-main);
-  --navy-dark: #0B192C; /* Navy dark abstract available */
+  --navy-dark: #0B192C;
 }
 
 @theme inline {
@@ -32,25 +32,20 @@ html, body {
   background: var(--background);
   color: var(--text-main);
   font-family: var(--font-outfit), Arial, Helvetica, sans-serif;
-  font-weight: 800;
-  text-transform: uppercase;
   overflow-x: hidden;
 }
 
-/* Base link reset */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Performance: GPU-accelerate animated elements */
 [class*="particle"],
 [class*="carouselTrack"],
 [class*="carouselSlider"] {
   will-change: transform;
 }
 
-/* Performance: Skip rendering off-screen sections */
 section {
   content-visibility: auto;
   contain-intrinsic-size: auto 800px;

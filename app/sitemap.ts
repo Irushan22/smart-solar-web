@@ -1,10 +1,11 @@
 import { MetadataRoute } from "next";
 import { allProjects } from "@/data/projects";
+import { siteConfig } from "@/site.config";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://smartsolar.lk";
+  const baseUrl = siteConfig.site.url;
 
   const projectUrls = allProjects.map((project) => ({
     url: `${baseUrl}/projects/${project.id}`,

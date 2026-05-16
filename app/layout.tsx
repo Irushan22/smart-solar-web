@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
 import { StructuredData } from "@/components/StructuredData/StructuredData";
+import { siteConfig } from "@/site.config";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,54 +21,36 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://smartsolar.lk"),
+  metadataBase: new URL(siteConfig.site.url),
   title: {
-    default: "Smart Solar Energy | #1 Solar Panel Installation in Sri Lanka",
-    template: "%s | Smart Solar Energy Sri Lanka",
+    default: siteConfig.seo.defaultTitle,
+    template: siteConfig.seo.titleTemplate,
   },
-  description:
-    "Smart Solar Energy And Electricals (PVT) LTD — Sri Lanka's trusted solar panel installation company. Residential & commercial solar systems, net metering, and renewable energy solutions island-wide.",
-  keywords: [
-    "solar panels Sri Lanka",
-    "solar installation Sri Lanka",
-    "solar energy Sri Lanka",
-    "net metering Sri Lanka",
-    "solar power system Sri Lanka",
-    "residential solar panels Sri Lanka",
-    "commercial solar installation Sri Lanka",
-    "renewable energy Sri Lanka",
-    "Smart Solar Energy",
-    "solar panel company Sri Lanka",
-    "on-grid solar system Sri Lanka",
-    "solar inverter Sri Lanka",
-    "best solar company Sri Lanka",
-    "solar panel price Sri Lanka",
-  ],
-  authors: [{ name: "Smart Solar Energy And Electricals (PVT) LTD" }],
-  creator: "Smart Solar Energy And Electricals (PVT) LTD",
+  description: siteConfig.seo.description,
+  keywords: siteConfig.seo.keywords,
+  authors: [{ name: siteConfig.brand.legalName }],
+  creator: siteConfig.brand.legalName,
   openGraph: {
     type: "website",
-    locale: "en_LK",
-    url: "https://smartsolar.lk",
-    siteName: "Smart Solar Energy",
-    title: "Smart Solar Energy | #1 Solar Panel Installation in Sri Lanka",
-    description:
-      "Sri Lanka's trusted solar panel installation company. Premium residential & commercial solar systems with net metering support.",
+    locale: siteConfig.site.locale,
+    url: siteConfig.site.url,
+    siteName: siteConfig.brand.name,
+    title: siteConfig.seo.defaultTitle,
+    description: siteConfig.seo.description,
     images: [
       {
-        url: "/smart-solar-hero-banner.png",
+        url: siteConfig.seo.ogImage,
         width: 1200,
         height: 630,
-        alt: "Smart Solar Energy — Solar Panel Installation Sri Lanka",
+        alt: `${siteConfig.brand.name} — ${siteConfig.brand.tagline}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Smart Solar Energy | Solar Panel Installation Sri Lanka",
-    description:
-      "Premium solar panel installation for homes & businesses across Sri Lanka. Net metering, on-grid systems & expert installation.",
-    images: ["/smart-solar-hero-banner.png"],
+    title: siteConfig.seo.defaultTitle,
+    description: siteConfig.seo.description,
+    images: [siteConfig.seo.ogImage],
   },
   robots: {
     index: true,
@@ -81,7 +64,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://smartsolar.lk",
+    canonical: siteConfig.site.url,
   },
 };
 
@@ -91,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={siteConfig.site.language} suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} antialiased`} suppressHydrationWarning>
         <StructuredData />
         {children}

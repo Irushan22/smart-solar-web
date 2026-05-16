@@ -2,21 +2,9 @@
 
 import Image from 'next/image';
 import styles from './Brands.module.css';
-
-const brands = [
-  { name: 'Huawei', logo: '/brands/huawei-solar-inverter-logo.jpeg' },
-  { name: 'Solis', logo: '/brands/solis-solar-inverter-logo.png' },
-  { name: 'GoodWe', logo: '/brands/goodwe-solar-inverter-logo.png' },
-  { name: 'SMA', logo: '/brands/sma-solar-inverter-logo.svg' },
-  { name: 'Growatt', logo: '/brands/growatt-solar-inverter-logo.png' },
-  { name: 'Jinko Solar', logo: '/brands/jinko-solar-panel-logo.svg' },
-  { name: 'LONGi', logo: '/brands/longi-solar-panel-logo.svg' },
-  { name: 'JA Solar', logo: '/brands/ja-solar-panel-logo.png' },
-  { name: 'Dyness', logo: '/brands/dyness-solar-battery-logo.png' },
-];
+import { brands } from '@/data/brands';
 
 export const Brands = () => {
-  // Duplicate the brands array for seamless infinite scroll
   const duplicated = [...brands, ...brands];
 
   return (
@@ -24,7 +12,6 @@ export const Brands = () => {
       <div className={styles.bgGlow}></div>
 
       <div className={styles.container}>
-        {/* Header */}
         <div className={styles.header}>
           <span className={styles.subtitle}>OUR PARTNERS</span>
           <h2 className={styles.title}>
@@ -36,9 +23,7 @@ export const Brands = () => {
           </p>
         </div>
 
-        {/* Auto-scrolling Carousel */}
         <div className={styles.carouselWrapper}>
-          {/* Fade edges */}
           <div className={styles.fadeMaskLeft}></div>
           <div className={styles.fadeMaskRight}></div>
 
@@ -53,6 +38,7 @@ export const Brands = () => {
                     height={70}
                     className={styles.brandLogo}
                     style={{ objectFit: 'contain' }}
+                    unoptimized
                   />
                 </div>
                 <span className={styles.brandName}>{brand.name}</span>
