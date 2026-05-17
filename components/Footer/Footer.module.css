@@ -127,6 +127,10 @@
 }
 
 /* ── Newsletter ────────────────────────────────────── */
+.newsletterWrap {
+  margin-top: 1.5rem;
+}
+
 .newsletter {
   margin-top: 0.5rem;
 }

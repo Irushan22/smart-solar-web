@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styles from './Footer.module.css';
 import { siteConfig } from '@/site.config';
 import { footerLinkGroups } from '@/data/navigation';
+import { Newsletter } from '@/components/Newsletter/Newsletter';
 
 const FacebookIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -97,6 +98,10 @@ export const Footer = () => {
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
                 <a href={`mailto:${siteConfig.contact.emails.primary}`}>{siteConfig.contact.emails.primary}</a>
+              </div>
+
+              <div className={styles.newsletterWrap}>
+                <Newsletter />
               </div>
             </div>
           </div>

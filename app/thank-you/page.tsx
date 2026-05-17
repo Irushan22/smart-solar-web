@@ -2,16 +2,16 @@ import Link from 'next/link';
 import { MessagePage, messagePageStyles as styles } from '@/components/MessagePage/MessagePage';
 
 export const metadata = {
-  title: 'Page Not Found',
-  description: 'The page you are looking for could not be found.',
+  title: 'Thank You',
+  description: 'Thanks for getting in touch. We\'ll be in contact shortly.',
 };
 
-export default function NotFound() {
+export default function ThankYou() {
   return (
     <MessagePage
-      eyebrow="404 — Page Not Found"
-      title={<>Looks like you wandered <span style={{ color: '#4a9630' }}>off-grid</span></>}
-      subtitle="The page you're looking for has either moved, been renamed, or doesn't exist. Don't worry — let's get you back on track."
+      eyebrow="Message Received"
+      title="Thanks for reaching out!"
+      subtitle="One of our solar consultants will be in touch within one business day. In the meantime, feel free to browse our recent installations."
     >
       <Link href="/" className={styles.primaryBtn}>
         Back to Home

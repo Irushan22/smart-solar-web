@@ -61,14 +61,12 @@ export const Contact = () => {
   };
 
   /**
-   * TEMPLATE NOTE — the form is a UI demo only.
-   * Wire this up to your real backend before going live:
-   *   - Resend / SendGrid / Mailgun
-   *   - FormSpree / Getform / Web3Forms
-   *   - Your own /api/contact endpoint
-   * Replace the setTimeout below with a real fetch().
+   * Submits the form to `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` if set.
+   * Falls back to a simulated success if no endpoint is configured —
+   * makes the form demo-able out of the box. Supports Formspree,
+   * Web3Forms, Getform, or any endpoint that accepts JSON POST.
    */
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSending) return;
 
@@ -78,17 +76,38 @@ export const Contact = () => {
 
     const newErrors = validate(formData);
     setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
 
-    if (Object.keys(newErrors).length === 0) {
-      setIsSending(true);
-      setTimeout(() => {
-        setIsSending(false);
-        setIsSuccess(true);
-        setFormData({ firstName: '', lastName: '', email: '', phone: '', service: '', message: '' });
-        setTouched({});
-        setErrors({});
-        setTimeout(() => setIsSuccess(false), 5000);
-      }, 1500);
+    setIsSending(true);
+
+    const endpoint = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT;
+    const web3FormsKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    try {
+      if (endpoint) {
+        const payload: Record<string, string> = { ...formData };
+        if (web3FormsKey) payload.access_key = web3FormsKey;
+
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error(`Form submit failed: ${res.status}`);
+      } else {
+        await new Promise((r) => setTimeout(r, 1200));
+      }
+
+      setIsSuccess(true);
+      setFormData({ firstName: '', lastName: '', email: '', phone: '', service: '', message: '' });
+      setTouched({});
+      setErrors({});
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (err) {
+      console.error(err);
+      setErrors({ message: 'Something went wrong. Please try again or email us directly.' });
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -164,14 +183,16 @@ export const Contact = () => {
                 </span>
               </div>
             </div>
+
           </div>
 
           <div className={styles.formCard}>
             <form onSubmit={handleSubmit} noValidate>
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>First Name</label>
+                  <label htmlFor="contact-firstName" className={styles.formLabel}>First Name</label>
                   <input
+                    id="contact-firstName"
                     type="text"
                     className={getInputClass('firstName')}
                     placeholder="John"
@@ -184,8 +205,9 @@ export const Contact = () => {
                   )}
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Last Name</label>
+                  <label htmlFor="contact-lastName" className={styles.formLabel}>Last Name</label>
                   <input
+                    id="contact-lastName"
                     type="text"
                     className={getInputClass('lastName')}
                     placeholder="Doe"
@@ -201,8 +223,9 @@ export const Contact = () => {
 
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Email</label>
+                  <label htmlFor="contact-email" className={styles.formLabel}>Email</label>
                   <input
+                    id="contact-email"
                     type="email"
                     className={getInputClass('email')}
                     placeholder="john@example.com"
@@ -215,8 +238,9 @@ export const Contact = () => {
                   )}
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Phone</label>
+                  <label htmlFor="contact-phone" className={styles.formLabel}>Phone</label>
                   <input
+                    id="contact-phone"
                     type="tel"
                     className={getInputClass('phone')}
                     placeholder="+1 555 123 4567"
@@ -231,8 +255,9 @@ export const Contact = () => {
               </div>
 
               <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Service Interested In</label>
+                <label htmlFor="contact-service" className={styles.formLabel}>Service Interested In</label>
                 <select
+                  id="contact-service"
                   className={getInputClass('service')}
                   value={formData.service}
                   onChange={(e) => handleChange('service', e.target.value)}
@@ -249,8 +274,9 @@ export const Contact = () => {
               </div>
 
               <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Message</label>
+                <label htmlFor="contact-message" className={styles.formLabel}>Message</label>
                 <textarea
+                  id="contact-message"
                   className={getTextareaClass()}
                   placeholder="Tell us about your project..."
                   rows={4}
@@ -292,6 +318,19 @@ export const Contact = () => {
             </form>
           </div>
         </div>
+      </div>
+
+      <div className={styles.mapWrap}>
+        <iframe
+          title="Office location"
+          src={`https://maps.google.com/maps?q=${encodeURIComponent(
+            process.env.NEXT_PUBLIC_MAPS_QUERY || siteConfig.contact.address.formatted
+          )}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
+          width="100%"
+          height="420"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
       </div>
     </section>
   );

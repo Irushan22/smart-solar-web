@@ -1,0 +1,13 @@
+{
+  "name": "Solar Flow",
+  "short_name": "Solar Flow",
+  "description": "Premium solar panel installation — residential & commercial.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4a9630",
+  "icons": [
+    { "src": "/icon", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-icon", "sizes": "180x180", "type": "image/png" }
+  ]
+}

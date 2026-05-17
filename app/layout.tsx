@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
 import { StructuredData } from "@/components/StructuredData/StructuredData";
+import { CookieBanner } from "@/components/CookieBanner/CookieBanner";
 import { siteConfig } from "@/site.config";
 import "./globals.css";
 
@@ -66,6 +67,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteConfig.site.url,
   },
+  manifest: "/manifest.webmanifest",
 };
 
 export default function RootLayout({
@@ -77,7 +79,9 @@ export default function RootLayout({
     <html lang={siteConfig.site.language} suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} antialiased`} suppressHydrationWarning>
         <StructuredData />
+        <a href="#main" className="sr-only focus:not-sr-only">Skip to content</a>
         {children}
+        <CookieBanner />
       </body>
     </html>
   );
