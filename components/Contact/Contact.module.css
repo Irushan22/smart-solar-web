@@ -82,10 +82,8 @@
 }
 
 .highlight {
-  background: linear-gradient(135deg, #73b042 0%, #4a9630 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: inherit;
+  padding-inline: 0.2em;
 }
 
 .headerDescription {
@@ -303,7 +301,7 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: white;
-  background: linear-gradient(135deg, #73b042, #4a9630);
+  background: #4a9630;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
@@ -315,7 +313,7 @@
 
 .formSubmit:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(115, 176, 66, 0.35);
+  box-shadow: 0 12px 35px rgba(74, 150, 48, 0.35);
 }
 
 .formSubmit svg {

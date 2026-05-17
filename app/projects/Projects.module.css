@@ -68,10 +68,8 @@
 }
 
 .highlight {
-  background: linear-gradient(135deg, #73b042 0%, #4a9630 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: inherit;
+  padding-inline: 0.2em;
 }
 
 .description {
@@ -123,10 +121,10 @@
 }
 
 .filterPillActive {
-  background: linear-gradient(135deg, rgba(115, 176, 66, 0.2), rgba(74, 150, 48, 0.1));
-  border-color: rgba(115, 176, 66, 0.4);
-  color: #73b042;
-  box-shadow: 0 0 20px rgba(115, 176, 66, 0.15);
+  background: rgba(74, 150, 48, 0.12);
+  border-color: rgba(74, 150, 48, 0.4);
+  color: #4a9630;
+  box-shadow: 0 0 20px rgba(74, 150, 48, 0.15);
 }
 
 /* Card Styling - exact replica from Portfolio */

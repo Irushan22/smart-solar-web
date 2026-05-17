@@ -87,10 +87,8 @@
 }
 
 .highlight {
-  background: linear-gradient(135deg, #73b042 0%, #4a9630 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: inherit;
+  padding-inline: 0.2em;
 }
 
 .headerDescription {
@@ -440,7 +438,7 @@
 
 .modalCta {
   font-family: var(--font-outfit), sans-serif;
-  background: linear-gradient(135deg, #73b042, #4a9630);
+  background: #4a9630;
   color: #ffffff;
   border: none;
   border-radius: 0.75rem;
@@ -450,12 +448,12 @@
   letter-spacing: 0.5px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(115, 176, 66, 0.3);
+  box-shadow: 0 4px 15px rgba(74, 150, 48, 0.3);
 }
 
 .modalCta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(115, 176, 66, 0.4);
+  box-shadow: 0 8px 25px rgba(74, 150, 48, 0.4);
 }
 
 /* Modal Animations */

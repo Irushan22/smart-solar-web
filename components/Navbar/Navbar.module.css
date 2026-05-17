@@ -128,8 +128,8 @@
 
 .ctaButton {
   font-family: var(--font-outfit), sans-serif;
-  background-color: #73b042; /* Primary blue button */
-  color: #ffffff; /* white text for contrast */
+  background-color: #4a9630;
+  color: #ffffff;
   border: none;
   padding: 0.75rem 1.75rem;
   border-radius: 9999px;

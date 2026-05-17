@@ -58,10 +58,8 @@
 }
 
 .highlight {
-  background: linear-gradient(135deg, #73b042 0%, #4a9630 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: inherit;
+  padding-inline: 0.2em;
 }
 
 .headerDescription {

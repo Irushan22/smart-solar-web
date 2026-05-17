@@ -68,10 +68,8 @@
 }
 
 .highlight {
-  background: linear-gradient(135deg, #73b042 0%, #4a9630 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: inherit;
+  padding-inline: 0.2em;
 }
 
 .headerDescription {
@@ -115,7 +113,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #73b042, #4a9630);
+  background: #4a9630;
   opacity: 0;
   transition: opacity 0.35s ease;
   border-radius: 100px;
@@ -128,15 +126,15 @@
 }
 
 .filterPill:hover {
-  border-color: #73b042;
+  border-color: #4a9630;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(115, 176, 66, 0.2);
+  box-shadow: 0 6px 20px rgba(74, 150, 48, 0.2);
 }
 
 .filterPillActive {
   border-color: transparent;
   color: white;
-  box-shadow: 0 8px 25px rgba(115, 176, 66, 0.3);
+  box-shadow: 0 8px 25px rgba(74, 150, 48, 0.3);
 }
 
 .filterPillActive::before {
@@ -146,7 +144,7 @@
 .filterPillActive:hover {
   border-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(115, 176, 66, 0.35);
+  box-shadow: 0 10px 30px rgba(74, 150, 48, 0.35);
 }
 
 /* ── Bento Grid ────────────────────────────────────── */
@@ -427,7 +425,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #73b042, #4a9630);
+  background: #4a9630;
   opacity: 0;
   transition: opacity 0.4s ease;
   border-radius: 100px;
@@ -441,7 +439,7 @@
 
 .ctaButton:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(115, 176, 66, 0.3);
+  box-shadow: 0 12px 35px rgba(74, 150, 48, 0.3);
 }
 
 .ctaButton:hover::before {

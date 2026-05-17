@@ -17,14 +17,14 @@ export const siteConfig = {
   // Brand
   // ──────────────────────────────────────────────────────────
   brand: {
-    name: "SolarFlow",
-    legalName: "SolarFlow Energy Inc.",
+    name: "Solar Flow",
+    legalName: "Solar Flow Energy Inc.",
     tagline: "Power Your Future With Clean Energy",
     shortDescription:
       "Premium residential & commercial solar solutions. Cut your power bill, gain energy independence, and invest in a cleaner future.",
     foundedYear: 2017,
-    logoUrl: "https://placehold.co/200x60/0B192C/73b042?text=SolarFlow&font=montserrat",
-    logoAlt: "SolarFlow — Solar Panel Installation Company",
+    logoUrl: "https://placehold.co/220x60/0B192C/4a9630?text=Solar+Flow&font=montserrat",
+    logoAlt: "Solar Flow — Solar Panel Installation Company",
     favicon: "/icon.png",
   },
 
@@ -75,10 +75,9 @@ export const siteConfig = {
   // ──────────────────────────────────────────────────────────
   social: {
     facebook: "https://facebook.com/",
+    instagram: "https://instagram.com/",
+    linkedin: "https://linkedin.com/",
     youtube: "https://youtube.com/",
-    instagram: "",
-    twitter: "",
-    linkedin: "",
   },
 
   // ──────────────────────────────────────────────────────────
@@ -118,7 +117,7 @@ export const siteConfig = {
       "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=1200&q=80",
     imageAlt: "Solar installation team mounting panels on a rooftop",
     paragraphs: [
-      "At SolarFlow, we believe going solar should be simple, affordable, and reliable for every home and business. With over 8 years of industry experience, our certified team delivers high-quality solar solutions designed to match your exact energy needs.",
+      "At Solar Flow, we believe going solar should be simple, affordable, and reliable for every home and business. With over 8 years of industry experience, our certified team delivers high-quality solar solutions designed to match your exact energy needs.",
       "We don't just install solar systems — we help you reduce your electricity bills, gain energy independence, and invest in a smarter future. From consultation to installation and after-sales support, we handle everything for you.",
     ],
     features: [
@@ -142,10 +141,10 @@ export const siteConfig = {
   // ──────────────────────────────────────────────────────────
   seo: {
     defaultTitle:
-      "SolarFlow Energy | Premium Solar Panel Installation",
-    titleTemplate: "%s | SolarFlow Energy",
+      "Solar Flow Energy | Premium Solar Panel Installation",
+    titleTemplate: "%s | Solar Flow Energy",
     description:
-      "SolarFlow Energy — trusted solar panel installation company. Residential & commercial solar systems, net metering, and renewable energy solutions.",
+      "Solar Flow Energy — trusted solar panel installation company. Residential & commercial solar systems, net metering, and renewable energy solutions.",
     keywords: [
       "solar panels",
       "solar installation",
@@ -170,7 +169,7 @@ export const siteConfig = {
   faqs: [
     {
       q: "How much does solar panel installation cost?",
-      a: "Solar panel installation costs vary based on system size. A typical 3kW residential system starts from around $9,000, while larger 10kW–25kW systems range from $25,000 to $60,000. SolarFlow offers free consultations to provide accurate quotes based on your specific energy needs and roof space.",
+      a: "Solar panel installation costs vary based on system size. A typical 3kW residential system starts from around $9,000, while larger 10kW–25kW systems range from $25,000 to $60,000. Solar Flow offers free consultations to provide accurate quotes based on your specific energy needs and roof space.",
     },
     {
       q: "What is net metering and how does it work?",
@@ -182,7 +181,7 @@ export const siteConfig = {
     },
     {
       q: "Which solar panel brands are best?",
-      a: "SolarFlow uses premium tier-1 solar panels from globally recognized brands. All equipment comes with comprehensive manufacturer warranties of 10–25 years.",
+      a: "Solar Flow uses premium tier-1 solar panels from globally recognized brands. All equipment comes with comprehensive manufacturer warranties of 10–25 years.",
     },
     {
       q: "How long does solar panel installation take?",

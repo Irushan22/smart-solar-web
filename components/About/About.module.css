@@ -194,7 +194,8 @@
 }
 
 .highlight {
-  color: #73b042;
+  color: inherit;
+  padding-inline: 0.2em;
 }
 
 .description {
